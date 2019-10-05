@@ -1,4 +1,4 @@
-package com.support.core.controller;
+package com.support.core.resource;
 
 
 import com.publicgroup.resourcereader.resource.Resource;
@@ -32,7 +32,7 @@ public class XmlTransDefinitionReader{
 		return resourceLoader;
 	}
 
-	public int loadBeanDefinitions(Resource resource) throws Exception {
+	public int loadTransDefinitions(Resource resource) throws Exception {
 		return this.doLoadTransDefinitions(resource);
 	}
 

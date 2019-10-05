@@ -6,9 +6,9 @@ import java.util.Map;
 
 public interface handleMapping {
 
-	TransDefinition getTransUrl(String transName);
-
-	void setTrans(String transName,String transUrl);
+	TransDefinition getTransDefinition(String transName);
 
 	boolean containsTrans(String transName);
+
+	String getTransUrl(String transName);
 }

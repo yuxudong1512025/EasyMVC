@@ -1,4 +1,4 @@
-package com.support.core.controller;
+package com.support.core.resource;
 
 import com.publicgroup.util.Assert;
 import com.publicgroup.util.log.LogFactory;
@@ -30,9 +30,12 @@ public class XmlParser4Trans {
 			Element node = (Element) nodeList.item(i);
 			String transName = node.getAttribute("name");
 			String transUrl = node.getAttribute("url");
+			String transMethod=node.getAttribute("method");
 
 			TransDefinition transDefinition=new DefaultTransDefinition();
 			transDefinition.setTransUrl(transUrl);
+			transDefinition.setTransName(transName);
+			transDefinition.setTransMethod(transMethod);
 
 			NodeList properties = node.getElementsByTagName("property");
 

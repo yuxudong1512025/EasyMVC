@@ -1,4 +1,4 @@
-package com.support.core.controller;
+package com.support.core.resource;
 
 import com.support.core.config.TransDefinition;
 

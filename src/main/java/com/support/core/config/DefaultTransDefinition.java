@@ -14,6 +14,8 @@ public class DefaultTransDefinition implements TransDefinition {
 
 	private Class<?>transUrl;
 
+	private String transMethod;
+
 	private Map<String, Class<?>> transproperties = new ConcurrentHashMap<>();
 
 	public DefaultTransDefinition() {
@@ -28,6 +30,16 @@ public class DefaultTransDefinition implements TransDefinition {
 	@Override
 	public String getTransUrl() {
 		return transName.getClass().getName();
+	}
+
+	@Override
+	public String getTransMethod() {
+		return transMethod;
+	}
+
+	@Override
+	public void setTransMethod(String method) {
+		transMethod=method;
 	}
 
 	@Override

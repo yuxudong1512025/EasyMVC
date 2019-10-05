@@ -8,6 +8,10 @@ public interface TransDefinition {
 
 	String getTransUrl();
 
+	String getTransMethod();
+
+	void setTransMethod(String method);
+
 	void setTransUrl(String url);
 
 	Map<String,Class<?>> getTransproperties();
