@@ -88,7 +88,7 @@ public class DefaultDispatcherController implements DispatcherController,Session
 		stringHandlerAdapter.setSession(this);
 		stringHandlerAdapter.setBeanFactory(this.beanFactory);
 
-		return (Map) stringHandlerAdapter.execute(transDefinition,data);
+		return (Map) stringHandlerAdapter.doHandler(transDefinition,data);
 	}
 
 	@Override

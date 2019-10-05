@@ -14,4 +14,6 @@
     </bean>
 
     <bean name="transResource" class="com.support.core.resource.TransResource"></bean>
+
+    <bean name="userService" class="com.support.model.service.userService"></bean>
 </beans>

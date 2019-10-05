@@ -1,6 +1,4 @@
 package com.support;
-import com.publicgroup.context.AutowireApplicationContext;
-import com.publicgroup.entity.Father;
 import com.publicgroup.factory.DefaultListableBeanFactory;
 import com.support.core.controller.DefaultDispatcherController;
 
@@ -16,6 +14,8 @@ public class App
         DefaultDispatcherController defaultDispatcherController= (DefaultDispatcherController) defaultListableBeanFactory.getBean("defaultDispatcherController");
         defaultDispatcherController.setBeanFactory(defaultListableBeanFactory);
         defaultDispatcherController.setResource(App.class.getResource("/trans.xml").getFile());
+        System.out.println(defaultDispatcherController.execute("hello?"));
+
         System.out.println("finish");
     }
 }

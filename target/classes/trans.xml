@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <trans>
-    <tran name="" url="" method=""></tran>
-    <tran name="" url="" method=""></tran>
+    <tran name="hello" url="com.support.model.service.userService" method="hello">
+        <rules>
+            <rule name="checkAuth"></rule>
+        </rules>
+    </tran>
 </trans>

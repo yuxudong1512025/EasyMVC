@@ -8,6 +8,7 @@ import com.support.core.controller.Session;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -28,19 +29,40 @@ public class StringHandlerAdapter implements authentication {
 	}
 
 	@Override
-	public boolean userExist(String userName) {
-		return Assert.isNotNull(session.getSession(userName));
+	public boolean userExist() {
+		return Assert.isNotNull(session.getSession("username"));
 	}
 
 	@Override
 	public void AddUser(String userName,String password) {
-		session.setSession(userName,password);
+		session.setSession("userName",userName);
+		session.setSession("userPassword",password);
 	}
 
 	@Override
-	public void removeUser(String userName) {
-		session.removeSession(userName);
+	public void removeUser() {
+		session.removeSession("userName");
+		session.removeSession("userPassword");
 	}
+
+	public boolean checkAuth(){
+		return userExist();
+	}
+
+	public Object doHandler(TransDefinition transDefinition, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+		if(transDefinition.containRule("checkAuth")){
+			if(checkAuth()){
+				return execute(transDefinition,data);
+			}else{
+				Map Errorresult=new HashMap<String,Object>();
+				Errorresult.put("Command","Nologin");
+				Errorresult.put("Nologin",null);
+				return Errorresult;
+			}
+		}
+		return execute(transDefinition,data);
+	}
+
 
 	public Object execute(TransDefinition transDefinition, Map data) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
 		Class<?>actionClass=Class.forName(transDefinition.getTransUrl());

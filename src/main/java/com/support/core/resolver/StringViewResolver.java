@@ -11,7 +11,7 @@ interface ViewResolver{
 }
 
 public enum  StringViewResolver implements ViewResolver{
-	NoLogin("Nologin","%s 未登录"),
+	NoLogin("Nologin","请先登录"),
 	LoginSuccess("LoginSuccess","登录成功，欢迎您 %s"),
 	NoRegister("NoRegister","抱歉 %s 未注册"),
 	RegisterSuccess("RegisterSuccess","%s 注册成功，欢迎您的加入"),
@@ -24,8 +24,13 @@ public enum  StringViewResolver implements ViewResolver{
 	public String getKey(){
 		return key;
 	}
-	public String getvalue(){
-		return value;
+	public static String getvalue(String key){
+		for (StringViewResolver s:StringViewResolver.values()){
+			if(s.getKey().equals(key)){
+				return s.value;
+			}
+		}
+		return "error";
 	}
 	StringViewResolver(String key, String value) {
 		this.key=key;
@@ -42,7 +47,7 @@ public enum  StringViewResolver implements ViewResolver{
 	}
 
 	public static String show(String command, Object... arg){
-		return ViewResolver.show(command,arg);
+		return ViewResolver.show(StringViewResolver.getvalue(command),arg);
 	}
 
 	public static void main(String[] args) {

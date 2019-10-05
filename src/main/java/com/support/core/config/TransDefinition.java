@@ -1,6 +1,6 @@
 package com.support.core.config;
 
-import java.util.Map;
+
 
 public interface TransDefinition {
 
@@ -10,11 +10,15 @@ public interface TransDefinition {
 
 	String getTransMethod();
 
+	void removeRule(String rule);
+
+	boolean containRule(String rule);
+
 	void setTransMethod(String method);
 
 	void setTransUrl(String url);
 
 	void setTransName(String name);
 
-
+	void setRule(String rule);
 }

@@ -2,9 +2,9 @@ package com.support.core.adapter;
 
 public interface authentication {
 
-	boolean userExist(String userName);
+	boolean userExist();
 
 	void AddUser(String userName,String password);
 
-	void removeUser(String userName);
+	void removeUser();
 }
