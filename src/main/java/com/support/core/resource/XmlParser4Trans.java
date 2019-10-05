@@ -25,7 +25,7 @@ public class XmlParser4Trans {
 		Element root = document.getDocumentElement();
 		logger.info("根节点标记" + root.getTagName());
 
-		NodeList nodeList = root.getElementsByTagName("trans");
+		NodeList nodeList = root.getElementsByTagName("tran");
 		for(int i = 0; i < nodeList.getLength(); ++i) {
 			Element node = (Element) nodeList.item(i);
 			String transName = node.getAttribute("name");
@@ -37,16 +37,6 @@ public class XmlParser4Trans {
 			transDefinition.setTransName(transName);
 			transDefinition.setTransMethod(transMethod);
 
-			NodeList properties = node.getElementsByTagName("property");
-
-			for(int j = 0; j < properties.getLength(); ++j) {
-				Element property = (Element)properties.item(j);
-				String name = property.getAttribute("name");
-				String type = property.getAttribute("type");
-				if (Assert.isEffectiveString(name) && Assert.isEffectiveString(type)) {
-					transDefinition.setTransproperties(name,type);
-				}
-			}
 			transDefinitions.put(transName,transDefinition);
 		}
 		return transDefinitions;

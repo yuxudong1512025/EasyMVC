@@ -6,6 +6,7 @@ import com.publicgroup.resourcereader.resource.Resource;
 import com.publicgroup.resourcereader.resource.ResourceLoader;
 import com.publicgroup.util.log.LogFactory;
 import com.support.core.config.TransDefinition;
+import com.support.core.controller.Session;
 import com.support.core.resource.TransDefinitionRegistry;
 import com.support.core.resource.TransResource;
 import com.support.core.resource.XmlTransDefinitionReader;
@@ -16,16 +17,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Component
-public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistry, handleMapping {
+public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistry, handleMapping{
 	private static Logger logger = LogFactory.getGlobalLog();
 	protected Map<String, TransDefinition> transDefinitionMap = new HashMap<>(256);
 
+	private Session session;
 	@Autowired
 	protected TransResource transResource;
 
 	@Override
 	public Resource getResource(String s) {
 		transResource.setPath(s);
+		refresh();
 		return transResource;
 	}
 
@@ -59,6 +62,10 @@ public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistr
 	@Override
 	public String getTransUrl(String transName) {
 		return transDefinitionMap.get(transName).getTransUrl();
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
 	}
 
 

@@ -14,16 +14,7 @@ public interface TransDefinition {
 
 	void setTransUrl(String url);
 
-	Map<String,Class<?>> getTransproperties();
-
-	Class<?>getTranpropertiesType(String propertiesName);
-
-	void setTransproperties(String name,Class<?>type);
-
-	void setTransproperties(String name,String type);
-
 	void setTransName(String name);
 
-	boolean containProperties(String propertyName);
 
 }

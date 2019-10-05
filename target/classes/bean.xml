@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+    <bean name="stringHandlerAdapter" class="com.support.core.adapter.StringHandlerAdapter">
+    </bean>
+
+    <bean name="defaultDispatcherController" class="com.support.core.controller.DefaultDispatcherController">
+        <ref bean="handleMappingimpl"></ref>
+        <ref bean="stringHandlerAdapter"></ref>
+    </bean>
+
+    <bean name="handleMappingimpl" class="com.support.core.mapping.HandleMappingimpl">
+        <ref bean="transResource"></ref>
+    </bean>
+
+    <bean name="transResource" class="com.support.core.resource.TransResource"></bean>
+</beans>

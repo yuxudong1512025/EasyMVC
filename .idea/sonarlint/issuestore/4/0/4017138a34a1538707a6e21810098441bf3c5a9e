@@ -1,15 +1,9 @@
 
-`squid:S18545"BRemove this useless assignment to local variable "resolveDataMap".(Şğ¡8¥¤å·Ù-
-[squid:S1858%"="get" returns a string, there's no need to call "toString()".(ó ¿¦8‘ï·Ù-
-\squid:S1854P">Remove this useless assignment to local variable "requestMap".(µ’“”8¥¤å·Ù-
-fsquid:S18549"CRemove this useless assignment to local variable "transDefinition".(ßØ‹çûÿÿÿÿ8¥¤å·Ù-
-Qsquid:S14815"3Remove this unused "resolveDataMap" local variable.(Şğ¡8¥¤å·Ù-
-Msquid:S1481P"/Remove this unused "requestMap" local variable.(µ’“”8¥¤å·Ù-
-psquid:S00117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Âş°8ïÍç·Ù-
-Hsquid:S1659""*Declare "ErrorMessage" on a separate line.(¡Âş°8Íææ·Ù-
-Wsquid:S14816"4Remove this unused "transDefinition" local variable.(¨£ö«ıÿÿÿÿ8¥¤å·Ù-
-Msquid:S1068"*Remove this unused "logger" private field.(™ñ§Œûÿÿÿÿ8¥¤å·Ù-
-psquid:S00117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡Âş°8Íææ·Ù-
-Osquid:S1481""1Remove this unused "ErrorMessage" local variable.(¡Âş°8Íææ·Ù-
-^squid:S1854%"@Remove this useless assignment to local variable "ErrorMessage".(ó ¿¦8‘ï·Ù-
-vsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(™ñ§Œûÿÿÿÿ8¥¤å·Ù-
+psquid:S001175"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ÅÕ8ïÍç·Ù-
+vsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(™ñ§Œûÿÿÿÿ8¥¤å·Ù-
+ssquid:UselessImportCheck
+"CRemove this unused import 'com.support.core.mapping.handleMapping'.(ÁÔÙğıÿÿÿÿ8¯ºúÒÙ-
+Qsquid:S1481O"3Remove this unused "resolveDataMap" local variable.(Şğ¡8¥¤å·Ù-
+jsquid:S00112="FDefine and throw a dedicated exception instead of using a generic one.(¯åÕøÿÿÿÿ8åØ¶ÍÙ-
+`squid:S1854O"BRemove this useless assignment to local variable "resolveDataMap".(Şğ¡8¥¤å·Ù-
+jsquid:S00112D"FDefine and throw a dedicated exception instead of using a generic one.(¯åÕøÿÿÿÿ8²œ¶ÍÙ-

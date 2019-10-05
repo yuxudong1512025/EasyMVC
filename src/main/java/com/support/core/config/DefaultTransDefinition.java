@@ -2,8 +2,6 @@ package com.support.core.config;
 
 import com.publicgroup.util.log.LogFactory;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,7 +14,6 @@ public class DefaultTransDefinition implements TransDefinition {
 
 	private String transMethod;
 
-	private Map<String, Class<?>> transproperties = new ConcurrentHashMap<>();
 
 	public DefaultTransDefinition() {
 	}
@@ -52,39 +49,8 @@ public class DefaultTransDefinition implements TransDefinition {
 	}
 
 	@Override
-	public Map<String, Class<?>> getTransproperties() {
-		return transproperties;
-	}
-
-	@Override
-	public Class<?> getTranpropertiesType(String propertiesName) {
-		return transproperties.get(propertiesName);
-	}
-
-	@Override
-	public void setTransproperties(String name, Class<?> type) {
-		transproperties.put(name,type);
-	}
-
-	@Override
-	public void setTransproperties(String name, String type) {
-		Class<?>thisType=Object.class;
-		try {
-			thisType=Class.forName(type);
-		} catch (ClassNotFoundException e) {
-			logger.log(Level.SEVERE,"传入参数类型设置错误：设置类型为："+type+" ",e);
-		}
-		transproperties.put(name,thisType);
-	}
-
-	@Override
 	public void setTransName(String name) {
 		transName=name;
-	}
-
-	@Override
-	public boolean containProperties(String propertyName) {
-		return transproperties.containsKey(propertyName);
 	}
 
 }

@@ -2,15 +2,12 @@ package com.support.core.controller;
 
 import com.publicgroup.annotation.Autowired;
 import com.publicgroup.annotation.Component;
-import com.publicgroup.config.BeanDefinition;
-import com.publicgroup.exception.BeanException;
-import com.publicgroup.exception.NoSuchBeanDefinitionException;
 import com.publicgroup.factory.BeanFactory;
-import com.publicgroup.factory.DefaultListableBeanFactory;
 import com.publicgroup.util.log.LogFactory;
 import com.support.core.adapter.StringHandlerAdapter;
 import com.support.core.config.TransDefinition;
 import com.support.core.mapping.HandleMappingimpl;
+import com.support.core.mapping.handleMapping;
 import com.support.core.resolver.StringViewResolver;
 
 import java.lang.reflect.InvocationTargetException;
@@ -23,18 +20,28 @@ import java.util.logging.Logger;
  * @author yuxudong
  */
 @Component
-public class DefaultDispatcherController implements DispatcherController,Session, BeanFactory {
+public class DefaultDispatcherController implements DispatcherController,Session{
 	private final static Logger logger= LogFactory.getGlobalLog();
 	private Map<String,Object>session=new HashMap<>(64);
-	private DefaultListableBeanFactory defaultListableBeanFactory;
+	private BeanFactory beanFactory;
 
 	@Autowired
 	private HandleMappingimpl handleMappingimpl;
 
 	private StringHandlerAdapter stringHandlerAdapter;
 
+	public DefaultDispatcherController(BeanFactory beanFactory) {
+		this.beanFactory = beanFactory;
+	}
 
+	public DefaultDispatcherController(){}
 
+	public void setBeanFactory(BeanFactory beanFactory) {
+		this.beanFactory = beanFactory;
+	}
+	public void setResource(String resource){
+		handleMappingimpl.getResource(resource);
+	}
 
 	@Override
 	public Map Request(String request) {
@@ -79,7 +86,7 @@ public class DefaultDispatcherController implements DispatcherController,Session
 			return null;
 		}
 		stringHandlerAdapter.setSession(this);
-		stringHandlerAdapter.setBeanFactory(this);
+		stringHandlerAdapter.setBeanFactory(this.beanFactory);
 
 		return (Map) stringHandlerAdapter.execute(transDefinition,data);
 	}
@@ -115,31 +122,6 @@ public class DefaultDispatcherController implements DispatcherController,Session
 			logger.log(Level.SEVERE,"",e);
 		}
 		return "error";
-	}
-
-	@Override
-	public Object getBean(String s) throws BeanException {
-		return defaultListableBeanFactory.getBean(s);
-	}
-
-	@Override
-	public <T> T getBean(String s, Class<T> aClass) throws BeanException {
-		return defaultListableBeanFactory.getBean(s,aClass);
-	}
-
-	@Override
-	public boolean containsBeanDefintion(String s) {
-		return defaultListableBeanFactory.containsBeanDefintion(s);
-	}
-
-	@Override
-	public boolean isSingleton(String s) throws NoSuchBeanDefinitionException {
-		return defaultListableBeanFactory.isSingleton(s);
-	}
-
-	@Override
-	public BeanDefinition getBeanDefinition(String s) {
-		return defaultListableBeanFactory.getBeanDefinition(s);
 	}
 
 	public void setHandleMappingimpl(HandleMappingimpl handleMappingimpl) {

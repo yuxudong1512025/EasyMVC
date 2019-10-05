@@ -29,8 +29,6 @@ m
 =src/main/java/com/support/core/mapping/HandleMappingimpl.java,4\9\490eaf9ff606283ad6c8f8f6ac74ee3df8026a90
 s
 Csrc/main/java/com/support/core/controller/DispatcherController.java,f\e\fe672a2557c0769d4b8afc25137453fa8e261cea
-e
-5src/main/java/com/support/core/controller/Parser.java,8\2\82f386cb01e87bdc60cf9cad5e27a9719c3d053d
 j
 :src/main/java/com/support/core/resource/TransResource.java,e\1\e10f4ca04bf698793cb0b74e2c5b253fb3f251dd
 t
@@ -39,3 +37,9 @@ z
 Jsrc/main/java/com/support/core/controller/DefaultDispatcherController.java,4\0\4017138a34a1538707a6e21810098441bf3c5a9e
 o
 ?src/main/java/com/support/core/resolver/StringViewResolver.java,1\9\198beaa3b7b639d466c1db3463812f5bf9e7a1d0
+j
+:src/main/java/com/support/core/adapter/authentication.java,8\d\8d99ffb94857c99d08ff6b64fe133ebe02433ca7
+p
+@src/main/java/com/support/core/adapter/StringHandlerAdapter.java,2\1\21cff0baf9a223566dd6af59a96da65d16b53f55
+f
+6src/main/java/com/support/core/controller/Session.java,c\4\c4a4317b42161ea051a91036800b1119a12ff2ba
