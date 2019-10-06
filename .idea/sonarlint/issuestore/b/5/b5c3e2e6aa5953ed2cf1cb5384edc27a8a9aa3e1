@@ -1,5 +1,16 @@
 
-rsquid:S1450"VRemove the "userDao" field and declare it as a local variable in the relevant methods.(­¶úÿÿÿÿ
-O
-squid:S106	"9Replace this use of System.out or System.err by a logger.(£ÆÏÁ
-Gsquid:S1068"+Remove this unused "userDao" private field.(­¶úÿÿÿÿ
+|squid:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
+usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”­Àùøÿÿÿÿ8Ş¢•ÿÙ-
+bsquid:S2583%"DChange this condition so that it does not always evaluate to "false"(ºá8ÅÁ”ÿÙ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(”­Àùøÿÿÿÿ8™°“ÿÙ-
+nsquid:CommentedOutCodeLine$"<This block of commented-out lines of code should be removed.(»¸’ùÿÿÿÿ8ÅÁ”ÿÙ-
+|squid:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
+|squid:S2293="YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
+|squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(£ÆÏÁ8™°“ÿÙ-
+ksquid:S1192"HDefine a constant instead of duplicating this literal "Command" 7 times.(åÓŞşÿÿÿÿ8™°“ÿÙ-
+asquid:S2583"CChange this condition so that it does not always evaluate to "true"(˜ûÍ•8Ş¢•ÿÙ-
+ysquid:S1450	"VRemove the "userDao" field and declare it as a local variable in the relevant methods.(­¶úÿÿÿÿ8Á×•ÿÙ-
+Nsquid:S1068	"+Remove this unused "userDao" private field.(­¶úÿÿÿÿ8Á×•ÿÙ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(úœ¬şÿÿÿÿ8Á×•ÿÙ-

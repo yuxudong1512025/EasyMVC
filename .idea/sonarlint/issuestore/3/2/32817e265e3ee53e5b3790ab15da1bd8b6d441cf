@@ -1,7 +1,8 @@
 
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.( ¨Üï
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(€ñº„
 T
-squid:S106"9Replace this use of System.out or System.err by a logger.(­Ç‘òþÿÿÿÿ
+squid:S106 "9Replace this use of System.out or System.err by a logger.(­Ç‘òþÿÿÿÿ
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¬Ëú8Âð…ÿÙ-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(˜¹éº8Âð…ÿÙ-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.( ¨Üï8Âð…ÿÙ-
