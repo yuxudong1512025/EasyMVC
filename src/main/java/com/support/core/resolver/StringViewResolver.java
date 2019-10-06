@@ -14,6 +14,7 @@ public enum  StringViewResolver implements ViewResolver{
 	NoLogin("Nologin","请先登录"),
 	LoginSuccess("LoginSuccess","登录成功，欢迎您 %s"),
 	NoRegister("NoRegister","抱歉 %s 未注册"),
+	ErrorRegister("ErrorRegister","该用户已注册"),
 	RegisterSuccess("RegisterSuccess","%s 注册成功，欢迎您的加入"),
 	DepositSuccess("DepositSuccess","您已成功充值%s 元"),
 	PaySuccess("PaySuccess","您已成功付款%s 元");

@@ -28,5 +28,16 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	public User(String username, String password, Double account) {
+		super();
+		this.userName = username;
+		this.password = password;
+		this.account = account;
+	}
+	
+	public User() {
+		super();
+	}
 }
 
