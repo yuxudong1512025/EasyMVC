@@ -1,11 +1,12 @@
 
-[
-squid:S1061"9Replace this use of System.out or System.err by a logger.(˜šëüÿÿÿÿ8€èÛ¸Ù-
 ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ò·Ê‰8‚äÁ¸Ù-
+[
+squid:S106;"9Replace this use of System.out or System.err by a logger.(˜šëüÿÿÿÿ8€èÛ¸Ù-
+asquid:S22597"CA "NullPointerException" could be thrown; "find()" can return null.(ÿ§ã8•ÓÇ×Ù-
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(İÀÂØûÿÿÿÿ8õÑ¼¸Ù-
+[
+squid:S106<"9Replace this use of System.out or System.err by a logger.(á››şùÿÿÿÿ8şÑÏ·Ù-
 ~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‹¸Ã¡øÿÿÿÿ8‚äÁ¸Ù-
 ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‚¤’Ï8‚äÁ¸Ù-
 ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÎşİÈ8‚äÁ¸Ù-
-ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ç£‘º8åæ·¸Ù-
-[
-squid:S1062"9Replace this use of System.out or System.err by a logger.(á››şùÿÿÿÿ8şÑÏ·Ù-
-~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(İÀÂØûÿÿÿÿ8õÑ¼¸Ù-
+ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÅÒËª8åæ·¸Ù-

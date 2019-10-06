@@ -1,3 +1,4 @@
 
-Fsquid:S11484"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µõÊÏÙ-
-bsquid:S22596"DA "NullPointerException" could be thrown; "method" is nullable here.(Â¨•á8é‚­ÒÙ-
+usquid:S001179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªà§áşÿÿÿÿ8¤óÖÙ-
+Fsquid:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µõÊÏÙ-
+bsquid:S2259L"DA "NullPointerException" could be thrown; "method" is nullable here.(Â¨•á8é‚­ÒÙ-

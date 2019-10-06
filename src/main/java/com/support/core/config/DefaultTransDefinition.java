@@ -29,8 +29,9 @@ public class DefaultTransDefinition implements TransDefinition {
 
 	@Override
 	public String getTransUrl() {
-		return transName.getClass().getName();
+		return transUrl.getName();
 	}
+
 
 	@Override
 	public String getTransMethod() {

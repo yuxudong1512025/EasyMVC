@@ -38,11 +38,15 @@ public class XmlParser4Trans {
 			transDefinition.setTransMethod(transMethod);
 
 			Element rules= (Element) node.getElementsByTagName("rules").item(0);
-			NodeList rulelist=rules.getElementsByTagName("rule");
-			for(int r = 0; r < rulelist.getLength(); ++r) {
-				Element rule = (Element) rulelist.item(i);
-				String ruleName=rule.getAttribute("name");
-				transDefinition.setRule(ruleName);
+			if(Assert.isNotNull(rules)){
+				NodeList rulelist=rules.getElementsByTagName("rule");
+				if(Assert.isNotNull(rulelist)){
+					for(int r = 0; r < rulelist.getLength(); ++r) {
+						Element rule = (Element) rulelist.item(i);
+						String ruleName=rule.getAttribute("name");
+						transDefinition.setRule(ruleName);
+					}
+				}
 			}
 			transDefinitions.put(transName,transDefinition);
 		}

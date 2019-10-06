@@ -1,5 +1,4 @@
 
+Usquid:S2629U"7Use the built-in formatting to construct this argument.(Øêø8¤Éä¨Ù-
 ysquid:S1450"VRemove the "session" field and declare it as a local variable in the relevant methods.(ÔÂòáÿÿÿÿÿ8òÚ¾ÒÙ-
 Nsquid:S1068"+Remove this unused "session" private field.(ÔÂòáÿÿÿÿÿ8È¹¾ÒÙ-
-Xsquid:UnusedPrivateMethodM",Remove this unused private "refresh" method.(®¿ê„8¤Éä¨Ù-
-Usquid:S2629T"7Use the built-in formatting to construct this argument.(Øêø8¤Éä¨Ù-

@@ -65,11 +65,13 @@ public class StringHandlerAdapter implements authentication {
 
 
 	public Object execute(TransDefinition transDefinition, Map data) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+		System.out.println(transDefinition.getTransUrl());
 		Class<?>actionClass=Class.forName(transDefinition.getTransUrl());
+		System.out.println(actionClass.getSimpleName());
 		Object action=beanFactory.getBean(actionClass.getSimpleName());
 		Method method=null;
 		try {
-			method=actionClass.getMethod(transDefinition.getTransMethod(),actionClass);
+			method=actionClass.getDeclaredMethod(transDefinition.getTransMethod());
 		} catch (NoSuchMethodException e) {
 			e.printStackTrace();
 		}

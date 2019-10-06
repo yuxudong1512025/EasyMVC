@@ -18,20 +18,25 @@ public enum  StringViewResolver implements ViewResolver{
 	DepositSuccess("DepositSuccess","您已成功充值%s 元"),
 	PaySuccess("PaySuccess","您已成功付款%s 元");
 
+
 	private String key;
 	private String value;
 
 	public String getKey(){
 		return key;
 	}
-	public static String getvalue(String key){
-		for (StringViewResolver s:StringViewResolver.values()){
+	public String getvalue(){
+		return value;
+	}
+	public static StringViewResolver find(String key){
+		for(StringViewResolver s:StringViewResolver.values()){
 			if(s.getKey().equals(key)){
-				return s.value;
+				return s;
 			}
 		}
-		return "error";
+		return null;
 	}
+
 	StringViewResolver(String key, String value) {
 		this.key=key;
 		this.value=value;
@@ -47,7 +52,7 @@ public enum  StringViewResolver implements ViewResolver{
 	}
 
 	public static String show(String command, Object... arg){
-		return ViewResolver.show(StringViewResolver.getvalue(command),arg);
+		return ViewResolver.show(StringViewResolver.find(command).getvalue(),arg);
 	}
 
 	public static void main(String[] args) {
