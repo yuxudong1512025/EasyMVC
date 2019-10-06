@@ -1,0 +1,17 @@
+
+@squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Nsquid:S11354"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+Ysquid:S1854>"=Remove this useless assignment to local variable "createdoc".(¸¿¸Ÿùÿÿÿÿ
+Usquid:S1135'"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8µªî€Ú-
+Nsquid:S1135@"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+T
+squid:S106E"9Replace this use of System.out or System.err by a logger.(Âû¯Ğüÿÿÿÿ
+?squid:S1148A"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+qsquid:S4435z"ZSecure this "Transformer" by either disabling external DTDs or enabling secure processing.(İ‰Ë–
+Osquid:S1135€"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+Esquid:S1481:".Remove this unused "createdoc" local variable.(İ®èó
+?squid:S1659:"(Declare "createroot" on a separate line.(İ®èó
+?squid:S11485"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+U
+squid:S106Œ"9Replace this use of System.out or System.err by a logger.(¯²Òãûÿÿÿÿ
+Fsquid:S1148("#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8µªî€Ú-

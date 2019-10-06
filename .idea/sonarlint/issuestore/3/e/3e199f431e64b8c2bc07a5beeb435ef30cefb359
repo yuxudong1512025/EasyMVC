@@ -1,0 +1,23 @@
+
+^squid:S1854";Remove this useless assignment to local variable "session".(Á áºüÿÿÿÿ8½ï…ÿÙ-
+|squid:S2293J"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8½ï…ÿÙ-
+fsquid:S1192"HDefine a constant instead of duplicating this literal "session" 7 times.(Ì´àá8½ï…ÿÙ-
+`squid:S2259:"CA "NullPointerException" could be thrown; "_user" is nullable here.(öÏú)8ı±ì‚Ú-
+lsquid:S1192"IDefine a constant instead of duplicating this literal "username" 5 times.(ï´‘Ïûÿÿÿÿ8½ï…ÿÙ-
+Osquid:S1481",Remove this unused "session" local variable.(Á áºüÿÿÿÿ8½ï…ÿÙ-
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÛîÏy8½ï…ÿÙ-
+msquid:S00100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùª‚Ä8½ï…ÿÙ-
+|squid:S2293V"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8½ï…ÿÙ-
+msquid:S00100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í©¿¬8½ï…ÿÙ-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ì´àá8½ï…ÿÙ-
+psquid:S001176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È²Ş8¨©è‚Ú-
+psquid:UselessImportCheck"@Remove this unused import 'com.support.core.controller.Session'.(ÔÂşëÿÿÿÿÿ8½ï…ÿÙ-
+msquid:S00100I"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø€°ì8½ï…ÿÙ-
+rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ„´Íÿÿÿÿÿ8½ï…ÿÙ-
+msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şÃ£Ú8½ï…ÿÙ-
+|squid:S22937"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8ˆÖë‚Ú-
+rsquid:S00100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÈ˜Ñûÿÿÿÿ8½ï…ÿÙ-
+psquid:S1192"MDefine a constant instead of duplicating this literal "LoginSuccess" 4 times.(¶²™éøÿÿÿÿ8ë²·Ú-
+ksquid:S1192"HDefine a constant instead of duplicating this literal "Command" 7 times.(¶²™éøÿÿÿÿ8½ï…ÿÙ-
