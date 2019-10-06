@@ -1,7 +1,7 @@
 package com.support.model.controller;
 
 import com.publicgroup.util.Assert;
-import com.support.core.controller.Session;
+import com.support.core.resolver.StringViewResolver;
 import com.support.model.entity.User;
 import com.support.model.service.UserService;
 
@@ -11,30 +11,26 @@ import java.util.Map;
 public class UserController {
 	private UserService userService;
 
-	public void SayHello(Map data) {
-		System.out.println(data.get("session").toString());
+	public void sayHello(Map data) {
 		Map<String, Object> session = Map.class.cast(data.get("session"));
 		session.put("username", "123");
 		userService.hello();
-		System.out.println(session.get("username"));
 		session.remove("username");
-
 	}
 
-	public Map SayHello2(Map data) {
-		Map<String, Object> result = new HashMap<>();
-		Map session = (Map) data.get("session");
-		result.put("Command", "LoginSuccess");
+	public Map sayHello2(Map data) {
+		Map<String, Object> result = new HashMap<>(64);
+		result.put("Command",StringViewResolver.LOGINSUCCESS);
 		result.put("LoginSuccess", "yuxudong");
 		return result;
 	}
 
-	public Map Regist(Map data) {
+	public Map regist(Map data) {
 		String username = (String) data.get("username");
 		String password = (String) data.get("password");
 		User user = new User(username, password, 0.00);
 		Map result = userService.regist(user);
-		if (result.get("Command").toString().equals("RegisterSuccess")) {
+		if (result.get("Command").equals(StringViewResolver.REGISTERSUCCESS)) {
 			Map<String, Object> session = (Map) data.get("session");
 			session.remove("user");
 			session.put("user", user);
@@ -42,7 +38,7 @@ public class UserController {
 		return result;
 	}
 
-	public Map Login(Map data) {
+	public Map login(Map data) {
 		String username = (String) data.get("username");
 		String password = (String) data.get("password");
 		Double account = (Double) data.get("account");
@@ -51,30 +47,30 @@ public class UserController {
 		if (Assert.isNotNull(session.get("user"))) {
 			session.remove("user");
 		}
-		User _user = userService.login(user);
-		Map<String, Object> result = new HashMap<String, Object>();
-		if (_user == null) {
-			result.put("Command", "NoRegister");
-			result.put("NoRegister", _user.getUserName());
+		User userdata = userService.login(user);
+		Map<String, Object> result = new HashMap<>(64);
+		if (!Assert.isNotNull(userdata)) {
+			result.put("Command", StringViewResolver.NOREGISTER);
+			result.put("NoRegister", userdata.getUserName());
 			return result;
 		}
-		if (!user.getPassword().equals(_user.getPassword())) {
-			result.put("Command", "ErrorPassword");
+		if (!user.getPassword().equals(userdata.getPassword())) {
+			result.put("Command", StringViewResolver.ERRORPASSWORD);
 			result.put("ErrorPassword", null);
 			return result;
 		} else {
-			result.put("Command", "LoginSuccess");
+			result.put("Command", StringViewResolver.LOGINSUCCESS);
 			result.put("LoginSuccess", user.getUserName());
-			session.put("user", _user);
+			session.put("user", userdata);
 			return result;
 		}
 	}
 
-	public Map<String, Object> Deposit(Map data) {
-		Map<String, Object> result = new HashMap<String, Object>();
+	public Map<String, Object> deposit(Map data) {
+		Map<String, Object> result = new HashMap<>(64);
 		Map<String, Object> session = Map.class.cast(data.get("session"));
 		if (session.get("user") == null) {
-			result.put("Command", "NoLogin");
+			result.put("Command", StringViewResolver.NOLOGIN);
 			result.put("NoLogin", null);
 			return result;
 		} else {
@@ -82,11 +78,11 @@ public class UserController {
 		}
 	}
 
-	public Map<String, Object> Pay(Map data) {
-		Map<String, Object> result = new HashMap<String, Object>();
+	public Map<String, Object> pay(Map data) {
+		Map<String, Object> result = new HashMap<>(64);
 		Map<String, Object> session = Map.class.cast(data.get("session"));
 		if (!Assert.isNotNull(session.get("user"))) {
-			result.put("Command", "Nologin");
+			result.put("Command",StringViewResolver.NOLOGIN);
 			result.put("Nologin", null);
 			return result;
 		} else {

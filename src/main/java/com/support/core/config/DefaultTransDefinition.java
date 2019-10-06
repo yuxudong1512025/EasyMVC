@@ -17,11 +17,6 @@ public class DefaultTransDefinition implements TransDefinition {
 
 	private Set<String> rules = new TreeSet<>();
 
-
-	public DefaultTransDefinition() {
-	}
-
-
 	@Override
 	public String getTransName() {
 		return transName;

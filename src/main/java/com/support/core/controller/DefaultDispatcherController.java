@@ -10,6 +10,8 @@ import com.support.core.config.TransDefinition;
 import com.support.core.mapping.HandleMappingimpl;
 
 import com.support.core.resolver.StringViewResolver;
+import com.support.exception.DataNeedACommandException;
+import com.support.exception.NoSuchCommandException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -47,30 +49,22 @@ public class DefaultDispatcherController implements DispatcherController, Sessio
 	}
 
 	@Override
-	public Map Request(String request) {
+	public Map request(String request) {
 		return StringParser.sendDataFormat(request);
 	}
 
 	@Override
-	public String Response(Map data) {
+	public String response(Map data) {
 		String command;
 
 		if (Assert.isNotNull(data.get("Command"))) {
-			command = data.get("Command").toString();
-			if (StringViewResolver.containsCommand(command)) {
-				return StringViewResolver.show(command, data.get(command));
-			} else {
-				try {
-					throw new RuntimeException();
-				} catch (RuntimeException e) {
-					logger.log(Level.SEVERE, "Command未设置");
-				}
-			}
+			StringViewResolver stringViewResolver= (StringViewResolver) data.get("Command");
+			return StringViewResolver.show(stringViewResolver,data.get(stringViewResolver.getKey()));
 		} else {
 			try {
-				throw new RuntimeException();
-			} catch (RuntimeException e) {
-				logger.log(Level.SEVERE, "需要设置返回指令");
+				throw new DataNeedACommandException();
+			} catch (DataNeedACommandException e) {
+				logger.log(Level.SEVERE, "需要设置返回指令",e);
 			}
 		}
 		return "Response error";
@@ -115,16 +109,12 @@ public class DefaultDispatcherController implements DispatcherController, Sessio
 
 	public String execute(String input) {
 		try {
-			Map<String, Object> data = Request(input);
-
+			Map<String, Object> data = request(input);
 			data.put("session", getSession());
-
 			Map<String, Object> executeData = resolveData(data.get("method").toString(), data);
-
-
-			return Response(executeData);
+			return response(executeData);
 		} catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException | NoSuchMethodException e) {
-			logger.log(Level.SEVERE, "", e);
+			logger.log(Level.SEVERE, "执行失败：", e);
 		}
 		return "error";
 	}

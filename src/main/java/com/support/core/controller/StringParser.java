@@ -1,5 +1,7 @@
 package com.support.core.controller;
 
+import com.publicgroup.util.log.LogFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +30,7 @@ public class StringParser {
 	public static void main(String[] args) {
 		Map<String, String> data = sendDataFormat("hello?id=123&password=123456");
 		for (Map.Entry<String, String> entry : data.entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue());
+			LogFactory.getGlobalLog().info(entry.getKey() + " " + entry.getValue());
 		}
 	}
 }

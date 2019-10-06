@@ -3,6 +3,8 @@ package com.support.model.dao.xmldata;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,6 +16,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import com.publicgroup.util.log.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -26,6 +29,8 @@ import com.support.model.entity.User;
  * @author wangyuqishmily
  */
 public class Writer {
+	private static final Logger logger= LogFactory.getGlobalLog();
+
 	private static final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
 	private Document document;
@@ -39,8 +44,7 @@ public class Writer {
 			document = db.parse(url);
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.log(Level.SEVERE,"xml加载错误 ",e);
 		}
 	}
 
@@ -54,24 +58,21 @@ public class Writer {
 			document = db.parse(url);
 
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.log(Level.SEVERE,"xml加载错误 ",e);
 		}
 	}
 
 	public void insert(User user) {
-		boolean createdoc = false, createroot = false;
+		boolean createroot = false;
 		if (!Assert.isNotNull(document)) {
 			try {
 				document = dbf.newDocumentBuilder().newDocument();
-				createdoc = true;
 			} catch (ParserConfigurationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.log(Level.SEVERE,"document 新建错误 ",e);
 			}
 		}
 		if (!Assert.isNotNull(document)) {
-			System.out.println("null");
+			logger.warning("null");
 		}
 		Element users = document.getDocumentElement();
 		if (!Assert.isNotNull(users)) {
@@ -130,8 +131,7 @@ public class Writer {
 			transformer.setOutputProperty(OutputKeys.INDENT, "yse");
 			transformer.transform(new DOMSource(document), new StreamResult(new File(url)));
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.log(Level.SEVERE,"xml写回错误  ",e);
 		}
 	}
 
@@ -142,7 +142,7 @@ public class Writer {
 		Reader reader = new Reader(url);
 		Set<User> users = reader.readAllData();
 		for (User user : users) {
-			System.out.println(user.getUserName() + " " + user.getPassword());
+			logger.info(user.getUserName() + " " + user.getPassword());
 		}
 	}
 }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 public interface DispatcherController {
 
-	Map Request(String request);
+	Map request(String request);
 
-	String Response(Map data);
+	String response(Map data);
 
 	Map resolveData(String requestUrl,Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException;
 

@@ -21,7 +21,6 @@ public class XmlParser4Trans {
 	private XmlParser4Trans() {
 	}
 
-	;
 
 	public static Map parser(Document document) {
 

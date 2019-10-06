@@ -4,7 +4,7 @@ public interface authentication {
 
 	boolean userExist();
 
-	void AddUser(String userName, String password);
+	void addUser(String userName, String password);
 
 	void removeUser();
 }

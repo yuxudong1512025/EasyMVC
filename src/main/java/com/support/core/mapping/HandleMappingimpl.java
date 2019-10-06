@@ -6,7 +6,6 @@ import com.publicgroup.resourcereader.resource.Resource;
 import com.publicgroup.resourcereader.resource.ResourceLoader;
 import com.publicgroup.util.log.LogFactory;
 import com.support.core.config.TransDefinition;
-import com.support.core.controller.Session;
 import com.support.core.resource.TransDefinitionRegistry;
 import com.support.core.resource.TransResource;
 import com.support.core.resource.XmlTransDefinitionReader;
@@ -21,7 +20,6 @@ public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistr
 	private static Logger logger = LogFactory.getGlobalLog();
 	protected Map<String, TransDefinition> transDefinitionMap = new HashMap<>(256);
 
-	private Session session;
 	@Autowired
 	protected TransResource transResource;
 
@@ -64,12 +62,7 @@ public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistr
 		return transDefinitionMap.get(transName).getTransUrl();
 	}
 
-	public void setSession(Session session) {
-		this.session = session;
-	}
-
-
-	protected class ResourceReaderFactory extends XmlTransDefinitionReader {
+	protected static class ResourceReaderFactory extends XmlTransDefinitionReader {
 		public ResourceReaderFactory(TransDefinitionRegistry registry) {
 			super(registry);
 		}
@@ -82,6 +75,7 @@ public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistr
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, "", e);
 		}
-		logger.info("一共初注册了" + count + "个transDefinition");
+		int finalCount = count;
+		logger.info(()->"一共初注册了 "+ finalCount +" 个transDefinition");
 	}
 }

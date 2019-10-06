@@ -1,5 +1,9 @@
 package com.support.core.resolver;
 
+import com.publicgroup.util.log.LogFactory;
+
+
+
 /**
  * @author
  */
@@ -11,14 +15,17 @@ interface ViewResolver{
 }
 
 public enum  StringViewResolver implements ViewResolver{
-	NoLogin("Nologin","请先登录"),
-	LoginSuccess("LoginSuccess","登录成功，欢迎您 %s"),
-	NoRegister("NoRegister","抱歉 %s 未注册"),
-	ErrorRegister("ErrorRegister","该用户已注册"),
-	RegisterSuccess("RegisterSuccess","%s 注册成功，欢迎您的加入"),
-	DepositSuccess("DepositSuccess","您已成功充值%s 元"),
-	PaySuccess("PaySuccess","您已成功付款%s 元"),
-	PayFail("PayFail","付款失败，您的余额不足 %s 元");
+	NOLOGIN("Nologin","请先登录"),
+	LOGINSUCCESS("LoginSuccess","登录成功，欢迎您 %s"),
+	NOREGISTER("NoRegister","抱歉 %s 未注册"),
+	ERRORREGISTER("ErrorRegister","该用户已注册"),
+	REGISTERSUCCESS("RegisterSuccess","%s 注册成功，欢迎您的加入"),
+	DEPOSITSUCCESS("DepositSuccess","您已成功充值%s 元"),
+	PAYSUCCESS("PaySuccess","您已成功付款%s 元"),
+	PAYFAIL("PayFail","付款失败，您的余额不足 %s 元"),
+	ERRORPASSWORD("ErrorPassword","密码错误"),
+	ERROR("Error","Command Not Found");
+
 
 
 
@@ -37,7 +44,7 @@ public enum  StringViewResolver implements ViewResolver{
 				return s;
 			}
 		}
-		return null;
+		return StringViewResolver.ERROR;
 	}
 
 	StringViewResolver(String key, String value) {
@@ -54,12 +61,14 @@ public enum  StringViewResolver implements ViewResolver{
 		return false;
 	}
 
-	public static String show(String command, Object... arg){
-		return ViewResolver.show(StringViewResolver.find(command).getvalue(),arg);
+	public static String show(StringViewResolver stringViewResolver, Object... arg){
+		return  ViewResolver.show(stringViewResolver.getvalue(),arg);
 	}
 
 	public static void main(String[] args) {
-		System.out.println(StringViewResolver.containsCommand("paySuccess"));
-		System.out.println(StringViewResolver.show(PaySuccess.value,100.11));
+		String out=ViewResolver.show(PAYSUCCESS.value,100.11);
+		String Sout=StringViewResolver.show(PAYSUCCESS,100.11);
+		LogFactory.getGlobalLog().info(Sout);
+		LogFactory.getGlobalLog().info(out);
 	}
 }

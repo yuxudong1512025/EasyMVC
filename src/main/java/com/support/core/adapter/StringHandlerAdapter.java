@@ -2,6 +2,7 @@ package com.support.core.adapter;
 
 import com.publicgroup.factory.BeanFactory;
 import com.publicgroup.util.Assert;
+import com.publicgroup.util.log.LogFactory;
 import com.support.core.config.TransDefinition;
 import com.support.core.controller.Session;
 
@@ -9,11 +10,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
- * @author
+ * @author yuxudong
  */
 public class StringHandlerAdapter implements authentication {
+
+	private static final Logger logger= LogFactory.getGlobalLog();
 
 	private Session session;
 
@@ -33,7 +37,7 @@ public class StringHandlerAdapter implements authentication {
 	}
 
 	@Override
-	public void AddUser(String userName, String password) {
+	public void addUser(String userName, String password) {
 		session.setSession("userName", userName);
 		session.setSession("userPassword", password);
 	}
@@ -64,12 +68,12 @@ public class StringHandlerAdapter implements authentication {
 
 
 	public Object execute(TransDefinition transDefinition, Map data) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-		System.out.println(transDefinition.getTransUrl());
+		logger.info(transDefinition.getTransUrl());
 		Class<?> actionClass = Class.forName(transDefinition.getTransUrl());
 		String beanName = actionClass.getSimpleName().substring(0, 1).toLowerCase() + actionClass.getSimpleName().substring(1);
-		System.out.println(beanName);
+		logger.info(beanName);
 		Object action = beanFactory.getBean(beanName);
-		System.out.println(transDefinition.getTransMethod());
+		logger.info(transDefinition.getTransMethod());
 		Method method = actionClass.getDeclaredMethod(transDefinition.getTransMethod(), Map.class);
 		Object returnData = method.invoke(action, data);
 		return method.getReturnType().cast(returnData);
