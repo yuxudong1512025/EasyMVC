@@ -119,8 +119,7 @@ public class DefaultDispatcherController implements DispatcherController,Session
 
 			Map<String,Object>executeData=resolveData(data.get("method").toString(),data);
 
-			System.out.println(data.get("session").toString());
-
+		
 			return Response(executeData);
 		} catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException | NoSuchMethodException e) {
 			logger.log(Level.SEVERE,"",e);
