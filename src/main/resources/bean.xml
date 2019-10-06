@@ -24,6 +24,7 @@
     </bean>
     <bean name="reader" class="com.support.model.dao.xmldata.Reader"></bean>
     <bean name="writer" class="com.support.model.dao.xmldata.Writer"></bean>
+
     <bean name="userDao" class="com.support.model.dao.UserDao">
         <ref bean="reader"></ref>
         <ref bean="writer"></ref>

@@ -1,16 +1,0 @@
-
-[
-squid:S1068"9Replace this use of System.out or System.err by a logger.(Âû¯Ğüÿÿÿÿ8ñŸÃÿÙ-
-esquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(—ıÒá
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(¯²Òãûÿÿÿÿ8„™çÿÙ-
-Nsquid:S11353"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
-Usquid:S1135s"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8İ›‚€Ú-
-?squid:S1148("#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-?squid:S1659-"(Declare "createroot" on a separate line.(İ®èó
-xsquid:S4435m"ZSecure this "Transformer" by either disabling external DTDs or enabling secure processing.(İ‰Ë–8İ›‚€Ú-
-Fsquid:S1148t"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8İ›‚€Ú-
-Nsquid:S1135'"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
-Ysquid:S18541"=Remove this useless assignment to local variable "createdoc".(¸¿¸Ÿùÿÿÿÿ
-Esquid:S1481-".Remove this unused "createdoc" local variable.(İ®èó
-?squid:S11484"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

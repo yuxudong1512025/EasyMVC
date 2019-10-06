@@ -41,7 +41,7 @@ public class Writer {
 		}
 	}
 
-	Writer(){}
+	public Writer(){}
 	Writer(String url){
 		this.url=url;
 		 try {
@@ -54,7 +54,7 @@ public class Writer {
 		}
 	}
 	
-	void insert(User user) {
+	public void insert(User user) {
 		boolean createdoc=false,createroot=false;
 		if(!Assert.isNotNull(document)) {
 			try {
@@ -86,7 +86,7 @@ public class Writer {
 		writeinfile();
 	}
 
-	void update(User user){
+	public void update(User user){
 		Element users=document.getDocumentElement();
 
 		NodeList nodeList=users.getElementsByTagName("user");
@@ -103,7 +103,7 @@ public class Writer {
 		writeinfile();
 	}
 
-	void delete(User user){
+	public void delete(User user){
 		Element users=document.getDocumentElement();
 
 		NodeList nodeList=users.getElementsByTagName("user");

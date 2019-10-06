@@ -18,13 +18,13 @@ public class UserService {
 
 	public Map<String,Object> regist(User user) {
 		Map<String,Object> result=new HashMap<String,Object>();
-		User _user =new User();// userDao.findByUsername(user.getUserName());
+		User _user =userDao.findByUsername(user.getUserName());
 		if(_user!=null) {
 			result.put("Command", "ErrorRegister");
 			result.put("ErrorRegister", null);
 			return result;
 		}else {
-			//userDao.add(user);
+			userDao.add(user);
 			result.put("Command", "RegisterSuccess");
 			result.put("RegisterSuccess", user.getUserName());
 			return result;
@@ -33,10 +33,10 @@ public class UserService {
 
 	public Map<String,Object> login(User form) {
 		Map<String,Object> result=new HashMap<String,Object>();
-		User user =new User();//userDao.findByUsername(form.getUserName());
+		User user =userDao.findByUsername(form.getUserName());
 		if(user == null) {
 			result.put("Command", "NoRegister");
-			result.put("NoRegister", null);
+			result.put("NoRegister", form.getUserName());
 			return result;
 		}
 		if(!form.getPassword().equals(user.getPassword())) {
@@ -44,23 +44,33 @@ public class UserService {
 			result.put("ErrorPassword", null);
 			return result;
 		}else {
-		result.put("Command", "LoginSuccess");
-		result.put("LoginSuccess", user.getUserName());
-		return result;
+			result.put("Command", "LoginSuccess");
+			result.put("LoginSuccess", user.getUserName());
+			return result;
 		}
 	}
 
-	public Map<String, Object> deposit(String money) {
+	public Map<String, Object> deposit(String money,User user) {
 		Map<String,Object> result=new HashMap<String,Object>();
+		user.setAccount(user.getAccount()+Double.valueOf(money));
+		userDao.update(user);
+
 		result.put("Command", "DepositSuccess");
 		result.put("DepositSuccess", money);
 		return result;
 
 	}
-	public Map<String,Object> pay(String money) {
+	public Map<String,Object> pay(String money,User user) {
 		Map<String,Object> result=new HashMap<String,Object>();
-		result.put("Command", "PaySuccess");
-		result.put("PaySuccess", money);
+		if(user.getAccount()<Double.valueOf(money)){
+			result.put("Command", "PayFail");
+			result.put("PayFail", money);
+		}else{
+			user.setAccount(user.getAccount()-Double.valueOf(money));
+			userDao.update(user);
+			result.put("Command", "PaySuccess");
+			result.put("PaySuccess", money);
+		}
 		return result;
 	}
 

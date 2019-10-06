@@ -7,4 +7,6 @@
         </rules>
     </tran>
     <tran name="hello2" url="com.support.model.controller.UserController" method="SayHello2"></tran>
+
+    <tran name="login" url="com.support.model.controller.UserController" method="Login"></tran>
 </trans>

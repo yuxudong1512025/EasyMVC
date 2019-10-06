@@ -15,9 +15,18 @@
 
     <bean name="transResource" class="com.support.core.resource.TransResource"></bean>
 
-    <bean name="userService" class="com.support.model.service.UserService"></bean>
+    <bean name="userService" class="com.support.model.service.UserService">
+        <ref bean="userDao"></ref>
+    </bean>
 
     <bean name="userController" class="com.support.model.controller.UserController">
         <ref bean="userService"></ref>
+    </bean>
+    <bean name="reader" class="com.support.model.dao.xmldata.Reader"></bean>
+    <bean name="writer" class="com.support.model.dao.xmldata.Writer"></bean>
+
+    <bean name="userDao" class="com.support.model.dao.UserDao">
+        <ref bean="reader"></ref>
+        <ref bean="writer"></ref>
     </bean>
 </beans>

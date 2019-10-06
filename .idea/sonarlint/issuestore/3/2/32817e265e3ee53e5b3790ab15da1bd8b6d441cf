@@ -1,8 +1,18 @@
 
+Jsquid:S1481",Remove this unused "userDao" local variable.(‡ı·8„ÀáÚ-
+Nsquid:S1481"0Remove this unused "userService" local variable.(¥¥‚ğ8¸“ãÚ-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.( ¨Üï8Âğ…ÿÙ-
+Isquid:S1481"+Remove this unused "writer" local variable.(¤ô«…8áƒæÚ-
+]squid:S1854"?Remove this useless assignment to local variable "userService".(¥¥‚ğ8¸“ãÚ-
 T
-squid:S106 "9Replace this use of System.out or System.err by a logger.(­Ç‘òşÿÿÿÿ
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¬Ëú8Âğ…ÿÙ-
+squid:S106,"9Replace this use of System.out or System.err by a logger.(­Ç‘òşÿÿÿÿ
+`squid:S1854"BRemove this useless assignment to local variable "userController".(ÿ¸Ñœ8›‰ÜÚ-
 V
-squid:S106"9Replace this use of System.out or System.err by a logger.(˜¹éº8Âğ…ÿÙ-
-V
-squid:S106"9Replace this use of System.out or System.err by a logger.( ¨Üï8Âğ…ÿÙ-
+squid:S106("9Replace this use of System.out or System.err by a logger.(˜¹éº8Âğ…ÿÙ-
+Ysquid:S1854";Remove this useless assignment to local variable "userDao".(‡ı·8„ÀáÚ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(áÌñáüÿÿÿÿ8†ëŞÚ-
+Xsquid:S1854":Remove this useless assignment to local variable "writer".(¤ô«…8áƒæÚ-
+Qsquid:S1481"3Remove this unused "userController" local variable.(ÿ¸Ñœ8›‰ÜÚ-
+]squid:S1854":Remove this useless assignment to local variable "reader".(¤å¨”ùÿÿÿÿ8˜ÓûÚ-
+Nsquid:S1481"+Remove this unused "reader" local variable.(¤å¨”ùÿÿÿÿ8˜ÓûÚ-

@@ -20,7 +20,7 @@ public class Reader {
 
 	private Document document;
 
-	Reader(){}
+	public Reader(){}
 
 	public void setUrl(String url){
 		try {
@@ -44,7 +44,7 @@ public class Reader {
 		}
 	}
 	
-	Set readAllData() {
+	public Set readAllData() {
 		Set<User>userlist=new HashSet<>();
 		
 		Element root = document.getDocumentElement();

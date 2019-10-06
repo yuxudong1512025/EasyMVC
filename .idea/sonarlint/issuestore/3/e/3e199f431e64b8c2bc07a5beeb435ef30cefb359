@@ -1,20 +1,21 @@
 
-^squid:S1854";Remove this useless assignment to local variable "session".(Á áºüÿÿÿÿ8½ï…ÿÙ-
+psquid:S1192"MDefine a constant instead of duplicating this literal "LoginSuccess" 3 times.(¶²™éøÿÿÿÿ8ë²·Ú-
+fsquid:S1192"HDefine a constant instead of duplicating this literal "session" 6 times.(Ì´àá8½ï…ÿÙ-
 V
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ì´àá8½ï…ÿÙ-
-rsquid:S00100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é²ìŸøÿÿÿÿ8½ï…ÿÙ-
-msquid:S00100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø€°ì8½ï…ÿÙ-
-lsquid:S1192"IDefine a constant instead of duplicating this literal "username" 7 times.(ï´‘Ïûÿÿÿÿ8½ï…ÿÙ-
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ì´àá8½ï…ÿÙ-
+^squid:S1854";Remove this useless assignment to local variable "session".(Á áºüÿÿÿÿ8½ï…ÿÙ-
+Osquid:S1481",Remove this unused "session" local variable.(Á áºüÿÿÿÿ8½ï…ÿÙ-
+|squid:S2293D"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8½ï…ÿÙ-
+lsquid:S1192"IDefine a constant instead of duplicating this literal "username" 5 times.(ï´‘Ïûÿÿÿÿ8½ï…ÿÙ-
+psquid:UselessImportCheck"@Remove this unused import 'com.support.core.controller.Session'.(ÔÂşëÿÿÿÿÿ8½ï…ÿÙ-
+fsquid:S1192;"HDefine a constant instead of duplicating this literal "NoLogin" 4 times.(ùÆ‹¤8½ï…ÿÙ-
+msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şÃ£Ú8½ï…ÿÙ-
+msquid:S00100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùª‚Ä8½ï…ÿÙ-
+rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ„´Íÿÿÿÿÿ8½ï…ÿÙ-
+|squid:S22938"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8½ï…ÿÙ-
 U
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÛîÏy8½ï…ÿÙ-
-rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ„´Íÿÿÿÿÿ8½ï…ÿÙ-
-|squid:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8½ï…ÿÙ-
-|squid:S2293;"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8½ï…ÿÙ-
-fsquid:S11922"HDefine a constant instead of duplicating this literal "NoLogin" 4 times.(ùÆ‹¤8½ï…ÿÙ-
-rsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œº÷ÿÿÿÿÿ8½ï…ÿÙ-
-Osquid:S1481",Remove this unused "session" local variable.(Á áºüÿÿÿÿ8½ï…ÿÙ-
-psquid:UselessImportCheck"@Remove this unused import 'com.support.core.controller.Session'.(ÔÂşëÿÿÿÿÿ8½ï…ÿÙ-
-ksquid:S1192"HDefine a constant instead of duplicating this literal "Command" 3 times.(¶²™éøÿÿÿÿ8½ï…ÿÙ-
-msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şÃ£Ú8½ï…ÿÙ-
-rsquid:S00100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÈ˜Ñûÿÿÿÿ8½ï…ÿÙ-
-fsquid:S1192"HDefine a constant instead of duplicating this literal "session" 5 times.(Ì´àá8½ï…ÿÙ-
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÛîÏy8½ï…ÿÙ-
+msquid:S00100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í©¿¬8½ï…ÿÙ-
+rsquid:S00100C"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÈ˜Ñûÿÿÿÿ8½ï…ÿÙ-
+msquid:S001007"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø€°ì8½ï…ÿÙ-
+ksquid:S1192"HDefine a constant instead of duplicating this literal "Command" 4 times.(¶²™éøÿÿÿÿ8½ï…ÿÙ-

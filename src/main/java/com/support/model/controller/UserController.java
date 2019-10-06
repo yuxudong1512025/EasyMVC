@@ -1,5 +1,6 @@
 package com.support.model.controller;
 
+import com.publicgroup.util.Assert;
 import com.support.core.controller.Session;
 import com.support.model.entity.User;
 import com.support.model.service.UserService;
@@ -28,42 +29,50 @@ public class UserController {
 		return result;
 	}
 	
-	public void Regist(Map data) {
+	public Map Regist(Map data) {
 		String username = (String) data.get("username");
 		String password = (String) data.get("password");
 		User user = new User(username, password, 0.00);
-		userService.regist(user);
+		return userService.regist(user);
 	}
 	
-	public void Login(Map data) {
+	public Map Login(Map data) {
 			String username = (String) data.get("username");
 			String password = (String) data.get("password");
 			Double account = (Double) data.get("account");
 			User user = new User(username, password, account);
-			userService.login(user);
+			Map<String,Object>session= (Map)data.get("session");
+			if(Assert.isNotNull(session.get("user"))){
+				session.remove("user");
+			}
+			Map result=userService.login(user);
+			if(result.get("Command").toString().equals("LoginSuccess")){
+				session.put("user",user);
+			}
+			return result;
 	}
 	
 	public Map<String,Object> Deposit(Map data) {
 		Map<String,Object> result=new HashMap<String,Object>();
 		Map<String,Object> session = Map.class.cast(data.get("session"));
-		if(session.get("username") == null) {
+		if(session.get("user") == null) {
 			result.put("Command", "NoLogin");
 			result.put("NoLogin", null);
 			return result;
 		}else {
-			return userService.deposit((String)data.get("money"));
+			return userService.deposit((String)data.get("money"), (User) session.get("user"));
 		}
 	}
 	
 	public Map<String, Object> Pay(Map data) {
 		Map<String,Object> result=new HashMap<String,Object>();
 		Map<String,Object> session = Map.class.cast(data.get("session"));
-		if(session.get("username") == null) {
+		if(session.get("user") == null) {
 			result.put("Command", "NoLogin");
 			result.put("NoLogin", null);
 			return result;
 		}else {
-			return userService.pay((String)data.get("money"));
+			return userService.pay((String)data.get("money"), (User) session.get("user"));
 		}
 	}
 
