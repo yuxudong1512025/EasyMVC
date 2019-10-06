@@ -1,18 +1,15 @@
 
-Jsquid:S1481",Remove this unused "userDao" local variable.(‡ı·8„ÀáÚ-
-Nsquid:S1481"0Remove this unused "userService" local variable.(¥¥‚ğ8¸“ãÚ-
+ssquid:UselessImportCheck"HRemove this unused import 'com.support.model.controller.UserController'.(Ï¾×Æ8ªŸ¤‚Ú-
+lsquid:UselessImportCheck"ARemove this unused import 'com.support.model.dao.xmldata.Reader'.(Ò³8ªŸ¤‚Ú-
+jsquid:UselessImportCheck":Remove this unused import 'com.support.model.dao.UserDao'.(–ù¬Úúÿÿÿÿ8ªŸ¤‚Ú-
+T
+squid:S106&"9Replace this use of System.out or System.err by a logger.(­Ç‘òşÿÿÿÿ
 V
 squid:S106"9Replace this use of System.out or System.err by a logger.( ¨Üï8Âğ…ÿÙ-
-Isquid:S1481"+Remove this unused "writer" local variable.(¤ô«…8áƒæÚ-
-]squid:S1854"?Remove this useless assignment to local variable "userService".(¥¥‚ğ8¸“ãÚ-
-T
-squid:S106,"9Replace this use of System.out or System.err by a logger.(­Ç‘òşÿÿÿÿ
-`squid:S1854"BRemove this useless assignment to local variable "userController".(ÿ¸Ñœ8›‰ÜÚ-
+lsquid:UselessImportCheck"ARemove this unused import 'com.support.model.dao.xmldata.Writer'.(ü¾“Ï8ªŸ¤‚Ú-
+rsquid:UselessImportCheck"BRemove this unused import 'com.support.model.service.UserService'.(Éëªşÿÿÿÿ8ªŸ¤‚Ú-
 V
-squid:S106("9Replace this use of System.out or System.err by a logger.(˜¹éº8Âğ…ÿÙ-
-Ysquid:S1854";Remove this useless assignment to local variable "userDao".(‡ı·8„ÀáÚ-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(áÌñáüÿÿÿÿ8†ëŞÚ-
-Xsquid:S1854":Remove this useless assignment to local variable "writer".(¤ô«…8áƒæÚ-
-Qsquid:S1481"3Remove this unused "userController" local variable.(ÿ¸Ñœ8›‰ÜÚ-
-]squid:S1854":Remove this useless assignment to local variable "reader".(¤å¨”ùÿÿÿÿ8˜ÓûÚ-
-Nsquid:S1481"+Remove this unused "reader" local variable.(¤å¨”ùÿÿÿÿ8˜ÓûÚ-
+squid:S106"9Replace this use of System.out or System.err by a logger.(Îô•Å8ªŸ¤‚Ú-
+V
+squid:S106""9Replace this use of System.out or System.err by a logger.(˜¹éº8Âğ…ÿÙ-
+tsquid:S2068"V'password' detected in this expression, review this potentially hard-coded credential.(Îô•Å8ªŸ¤‚Ú-

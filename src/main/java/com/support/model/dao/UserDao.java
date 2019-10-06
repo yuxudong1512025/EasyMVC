@@ -22,9 +22,9 @@ public class UserDao {
 
 	public User findByUsername(String username) {
 		this.reader.setUrl(UserDao.class.getResource("/user.xml").getFile());
-		Set<User>users=reader.readAllData();
-		for (User user:users){
-			if(user.getUserName().equals(username)){
+		Set<User> users = reader.readAllData();
+		for (User user : users) {
+			if (user.getUserName().equals(username)) {
 				return user;
 			}
 		}
@@ -35,7 +35,8 @@ public class UserDao {
 		this.writer.setUrl(UserDao.class.getResource("/user.xml").getFile());
 		writer.insert(user);
 	}
-	public void update(User user){
+
+	public void update(User user) {
 		this.writer.setUrl(UserDao.class.getResource("/user.xml").getFile());
 		writer.update(user);
 	}

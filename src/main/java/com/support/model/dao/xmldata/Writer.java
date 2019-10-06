@@ -22,80 +22,85 @@ import org.xml.sax.SAXException;
 import com.publicgroup.util.Assert;
 import com.support.model.entity.User;
 
+/**
+ * @author wangyuqishmily
+ */
 public class Writer {
 	private static final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
 	private Document document;
-	
+
 	private String url;
 
-	public void setUrl(String url){
-		this.url=url;
+	public void setUrl(String url) {
+		this.url = url;
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			document=db.parse(url);
+			document = db.parse(url);
 
-		} catch (ParserConfigurationException|SAXException|IOException e) {
+		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public Writer(){}
-	Writer(String url){
-		this.url=url;
-		 try {
+	public Writer() {
+	}
+
+	Writer(String url) {
+		this.url = url;
+		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			document=db.parse(url);
-			
-		} catch (ParserConfigurationException|SAXException|IOException e) {
+			document = db.parse(url);
+
+		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void insert(User user) {
-		boolean createdoc=false,createroot=false;
-		if(!Assert.isNotNull(document)) {
+		boolean createdoc = false, createroot = false;
+		if (!Assert.isNotNull(document)) {
 			try {
-				document=dbf.newDocumentBuilder().newDocument();
-				createdoc=true;
+				document = dbf.newDocumentBuilder().newDocument();
+				createdoc = true;
 			} catch (ParserConfigurationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		if(!Assert.isNotNull(document)){
+		if (!Assert.isNotNull(document)) {
 			System.out.println("null");
 		}
-		Element users=document.getDocumentElement();
-		if(!Assert.isNotNull(users)) {
-			users=document.createElement("users");
-			createroot=true;
+		Element users = document.getDocumentElement();
+		if (!Assert.isNotNull(users)) {
+			users = document.createElement("users");
+			createroot = true;
 		}
-		Element userRecord=document.createElement("user");
+		Element userRecord = document.createElement("user");
 		userRecord.setAttribute("name", user.getUserName());
 		userRecord.setAttribute("password", user.getPassword());
 		userRecord.setAttribute("account", String.valueOf(user.getAccount()));
 
 
-		if(createroot) {
+		if (createroot) {
 			document.appendChild(users);
 		}
 		users.appendChild(userRecord);
 		writeinfile();
 	}
 
-	public void update(User user){
-		Element users=document.getDocumentElement();
+	public void update(User user) {
+		Element users = document.getDocumentElement();
 
-		NodeList nodeList=users.getElementsByTagName("user");
-		for(int i=0;i<nodeList.getLength();i++){
-			Element userElement=(Element)nodeList.item(i);
-			String username=userElement.getAttribute("name");
-			if(username.equals(user.getUserName())){
-				userElement.setAttribute("password",user.getPassword());
-				userElement.setAttribute("account",String.valueOf(user.getAccount()));
+		NodeList nodeList = users.getElementsByTagName("user");
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			Element userElement = (Element) nodeList.item(i);
+			String username = userElement.getAttribute("name");
+			if (username.equals(user.getUserName())) {
+				userElement.setAttribute("password", user.getPassword());
+				userElement.setAttribute("account", String.valueOf(user.getAccount()));
 				users.appendChild(userElement);
 				break;
 			}
@@ -103,14 +108,14 @@ public class Writer {
 		writeinfile();
 	}
 
-	public void delete(User user){
-		Element users=document.getDocumentElement();
+	public void delete(User user) {
+		Element users = document.getDocumentElement();
 
-		NodeList nodeList=users.getElementsByTagName("user");
-		for(int i=0;i<nodeList.getLength();i++){
-			Element userElement=(Element)nodeList.item(i);
-			String username=userElement.getAttribute("name");
-			if(username.equals(user.getUserName())){
+		NodeList nodeList = users.getElementsByTagName("user");
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			Element userElement = (Element) nodeList.item(i);
+			String username = userElement.getAttribute("name");
+			if (username.equals(user.getUserName())) {
 				users.removeChild(userElement);
 				break;
 			}
@@ -118,11 +123,11 @@ public class Writer {
 		writeinfile();
 	}
 
-	private void writeinfile(){
-		TransformerFactory transformerFactory=TransformerFactory.newInstance();
+	private void writeinfile() {
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		try {
-			Transformer transformer=transformerFactory.newTransformer();
-			transformer.setOutputProperty(OutputKeys.INDENT,"yse");
+			Transformer transformer = transformerFactory.newTransformer();
+			transformer.setOutputProperty(OutputKeys.INDENT, "yse");
 			transformer.transform(new DOMSource(document), new StreamResult(new File(url)));
 		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
@@ -131,13 +136,13 @@ public class Writer {
 	}
 
 	public static void main(String[] args) {
-		String url= Writer.class.getResource("/user.xml").getFile();
-		Writer datawrite=new Writer(url);
-		datawrite.update(new User("王郁琦","122322",123.0));
-		Reader reader=new Reader(url);
-		Set<User>users= reader.readAllData();
-		for (User user:users){
-			System.out.println(user.getUserName()+" "+user.getPassword());
+		String url = Writer.class.getResource("/user.xml").getFile();
+		Writer datawrite = new Writer(url);
+		datawrite.update(new User("王郁琦", "122322", 123.0));
+		Reader reader = new Reader(url);
+		Set<User> users = reader.readAllData();
+		for (User user : users) {
+			System.out.println(user.getUserName() + " " + user.getPassword());
 		}
 	}
 }

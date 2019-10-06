@@ -1,9 +1,9 @@
 
 psquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñï¢Ä8Ş¢•ÿÙ-
+ksquid:S1192"HDefine a constant instead of duplicating this literal "Command" 5 times.(åÓŞşÿÿÿÿ8™°“ÿÙ-
+|squid:S2293("YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
+|squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
 V
 squid:S106"9Replace this use of System.out or System.err by a logger.(£ÆÏÁ8™°“ÿÙ-
-|squid:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
-ksquid:S1192"HDefine a constant instead of duplicating this literal "Command" 8 times.(åÓŞşÿÿÿÿ8™°“ÿÙ-
-|squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
-|squid:S2293@"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
-|squid:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
+|squid:S22932"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ·Ğîúÿÿÿÿ8™°“ÿÙ-
+squid:S1488#"\Immediately return this expression instead of assigning it to the temporary variable "user".(Ï’¯Æıÿÿÿÿ8ú°ç‚Ú-

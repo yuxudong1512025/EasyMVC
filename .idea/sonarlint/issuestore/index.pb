@@ -21,3 +21,5 @@ g
 7src/main/java/com/support/model/dao/xmldata/Reader.java,1\6\16652e2619c38b7de702cf464b768ea8467373bf
 g
 7src/main/java/com/support/model/dao/xmldata/Writer.java,0\5\05285f96263a5aee4cf53741258b6df3e4743e80
+`
+0src/main/java/com/support/model/entity/User.java,a\e\aea34d871ec18578f09c071c89b5b48df6f7c15c

@@ -22,13 +22,14 @@ public class TransResource implements Resource {
 		return false;
 	}
 
-	public void setFile(File file){
-		this.file=file;
-		path=file.getPath();
+	public void setFile(File file) {
+		this.file = file;
+		path = file.getPath();
 	}
-	public void setPath(String path){
-		this.path=path;
-		file=new File(path);
+
+	public void setPath(String path) {
+		this.path = path;
+		file = new File(path);
 	}
 
 	@Override

@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Component
-public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistry, handleMapping{
+public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistry, handleMapping {
 	private static Logger logger = LogFactory.getGlobalLog();
 	protected Map<String, TransDefinition> transDefinitionMap = new HashMap<>(256);
 
@@ -75,12 +75,12 @@ public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistr
 		}
 	}
 
-	private void refresh(){
+	private void refresh() {
 		int count = 0;
 		try {
 			count = (new ResourceReaderFactory(this).loadTransDefinitions(transResource));
 		} catch (Exception e) {
-			logger.log(Level.SEVERE,"",e);
+			logger.log(Level.SEVERE, "", e);
 		}
 		logger.info("一共初注册了" + count + "个transDefinition");
 	}

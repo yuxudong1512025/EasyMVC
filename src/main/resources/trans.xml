@@ -9,4 +9,7 @@
     <tran name="hello2" url="com.support.model.controller.UserController" method="SayHello2"></tran>
 
     <tran name="login" url="com.support.model.controller.UserController" method="Login"></tran>
+    <tran name="regist" url="com.support.model.controller.UserController" method="Regist"></tran>
+    <tran name="deposit" url="com.support.model.controller.UserController" method="Deposit"></tran>
+    <tran name="pay" url="com.support.model.controller.UserController" method="Pay"></tran>
 </trans>

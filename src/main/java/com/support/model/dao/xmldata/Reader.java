@@ -20,53 +20,54 @@ public class Reader {
 
 	private Document document;
 
-	public Reader(){}
+	public Reader() {
+	}
 
-	public void setUrl(String url){
+	public void setUrl(String url) {
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			document=db.parse(url);
+			document = db.parse(url);
 
-		} catch (ParserConfigurationException|SAXException|IOException e) {
+		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	Reader(String url){
-		 try {
+
+	Reader(String url) {
+		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			document=db.parse(url);
-			
-		} catch (ParserConfigurationException|SAXException|IOException e) {
+			document = db.parse(url);
+
+		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Set readAllData() {
-		Set<User>userlist=new HashSet<>();
-		
+		Set<User> userlist = new HashSet<>();
+
 		Element root = document.getDocumentElement();
 
-		NodeList nList=root.getElementsByTagName("user");
-		for(int i=0;i<nList.getLength();i++) {
-			Element user = (Element)nList.item(i);
-			String username=user.getAttribute("name");
-			String password=user.getAttribute("password");
-			String account=user.getAttribute("account");
-			userlist.add(new User(username,password,Double.valueOf(account)));
+		NodeList nList = root.getElementsByTagName("user");
+		for (int i = 0; i < nList.getLength(); i++) {
+			Element user = (Element) nList.item(i);
+			String username = user.getAttribute("name");
+			String password = user.getAttribute("password");
+			String account = user.getAttribute("account");
+			userlist.add(new User(username, password, Double.valueOf(account)));
 		}
-		
+
 		return userlist;
 	}
 
 
-	public static void main(String ...arg) {
-		Reader xmlread=new Reader(Reader.class.getResource("/user.xml").getFile());
-		Set<User> data=xmlread.readAllData();
-		for(User user:data) {
-			System.out.println(user.getUserName()+" "+user.getPassword());
+	public static void main(String... arg) {
+		Reader xmlread = new Reader(Reader.class.getResource("/user.xml").getFile());
+		Set<User> data = xmlread.readAllData();
+		for (User user : data) {
+			System.out.println(user.getUserName() + " " + user.getPassword());
 		}
 	}
 }

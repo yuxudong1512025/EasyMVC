@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * @author yuxudong
  */
-public class XmlTransDefinitionReader{
+public class XmlTransDefinitionReader {
 	protected final TransDefinitionRegistry registry;
 	private ResourceLoader resourceLoader;
 
@@ -40,11 +40,11 @@ public class XmlTransDefinitionReader{
 		return (new XmlDocumentResource(resource.getFile())).getDocument();
 	}
 
-	public int doLoadTransDefinitions(Resource resource)throws Exception{
+	public int doLoadTransDefinitions(Resource resource) throws Exception {
 		Document doc = this.doLoadDocument(resource);
 		this.transDefinitions = XmlParser4Trans.parser(doc);
-		for (Map.Entry<String,TransDefinition>entry:transDefinitions.entrySet()){
-			registry.registerTransDefinition(entry.getKey(),entry.getValue());
+		for (Map.Entry<String, TransDefinition> entry : transDefinitions.entrySet()) {
+			registry.registerTransDefinition(entry.getKey(), entry.getValue());
 		}
 		return transDefinitions.size();
 	}
