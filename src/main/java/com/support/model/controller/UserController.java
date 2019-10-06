@@ -23,9 +23,10 @@ public class UserController {
 
 	public Map SayHello2(Map data){
 		Map<String,Object>result=new HashMap<>();
-		Map session= (Map) data.get("session");
+		Map<String,Object> session= (Map) data.get("session");
 		result.put("Command","LoginSuccess");
 		result.put("LoginSuccess","yuxudong");
+
 		return result;
 	}
 

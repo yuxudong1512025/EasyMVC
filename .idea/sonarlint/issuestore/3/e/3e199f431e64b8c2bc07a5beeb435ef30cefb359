@@ -1,0 +1,15 @@
+
+_squid:S1192"HDefine a constant instead of duplicating this literal "session" 3 times.(Ì´àá
+esquid:S1192"IDefine a constant instead of duplicating this literal "username" 3 times.(ï´‘Ïûÿÿÿÿ
+isquid:UselessImportCheck"@Remove this unused import 'com.support.core.controller.Session'.(ÔÂþëÿÿÿÿÿ
+‡squid:UselessImportCheck"cRemove this unused import 'com.sun.org.apache.xml.internal.serializer.utils.SerializerMessages_es'.(ƒ€ªÏ
+gsquid:UselessImportCheck"CRemove this unused import 'com.sun.javaws.security.AppContextUtil'.(ÒÙÞÿ
+Wsquid:S1854";Remove this useless assignment to local variable "session".(øù˜Øûÿÿÿÿ
+Lsquid:S1191"5Use classes from the Java API instead of Sun classes.(ÒÙÞÿ
+Hsquid:S1481",Remove this unused "session" local variable.(øù˜Øûÿÿÿÿ
+N
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÛîÏy
+O
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ì´àá
+fsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(þÃ£Ú
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ý„´Íÿÿÿÿÿ

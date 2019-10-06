@@ -7,7 +7,6 @@ import com.support.core.controller.Session;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,10 +53,10 @@ public class StringHandlerAdapter implements authentication {
 			if(checkAuth()){
 				return execute(transDefinition,data);
 			}else{
-				Map Errorresult=new HashMap<String,Object>();
-				Errorresult.put("Command","Nologin");
-				Errorresult.put("Nologin",null);
-				return Errorresult;
+				Map errorResult=new HashMap<String,Object>();
+				errorResult.put("Command","Nologin");
+				errorResult.put("Nologin",null);
+				return errorResult;
 			}
 		}
 		return execute(transDefinition,data);

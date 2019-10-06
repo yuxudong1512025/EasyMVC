@@ -8,7 +8,7 @@ import com.publicgroup.util.log.LogFactory;
 import com.support.core.adapter.StringHandlerAdapter;
 import com.support.core.config.TransDefinition;
 import com.support.core.mapping.HandleMappingimpl;
-import com.support.core.mapping.handleMapping;
+
 import com.support.core.resolver.StringViewResolver;
 
 import java.lang.reflect.InvocationTargetException;
@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 @Component
 public class DefaultDispatcherController implements DispatcherController,Session{
-	private final static Logger logger= LogFactory.getGlobalLog();
+	private static final Logger logger= LogFactory.getGlobalLog();
 	private Map<String,Object>session=new HashMap<>(64);
 	private BeanFactory beanFactory;
 
@@ -51,12 +51,12 @@ public class DefaultDispatcherController implements DispatcherController,Session
 
 	@Override
 	public String Response(Map data) {
-		String Command;
+		String command;
 
 			if (Assert.isNotNull(data.get("Command"))){
-				Command = data.get("Command").toString();
-				if (StringViewResolver.containsCommand(Command)){
-					return StringViewResolver.show(Command,data.get(Command));
+				command = data.get("Command").toString();
+				if (StringViewResolver.containsCommand(command)){
+					return StringViewResolver.show(command,data.get(command));
 				}else{
 					try{
 						throw new RuntimeException();
@@ -77,7 +77,6 @@ public class DefaultDispatcherController implements DispatcherController,Session
 
 	@Override
 	public Map resolveData(String requestUrl, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
-		Map<String,Object>resolveDataMap=new HashMap<>();
 		TransDefinition transDefinition=null;
 
 		if(handleMappingimpl.containsTrans(requestUrl)){
