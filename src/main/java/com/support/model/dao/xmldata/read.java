@@ -37,20 +37,21 @@ public class read {
 	Set readAllData() {
 		Set<User>userlist=new HashSet<>();
 		
-		NodeList nList = document.getElementsByTagName("users");
-		
+		Element root = document.getDocumentElement();
+
+		NodeList nList=root.getElementsByTagName("user");
 		for(int i=0;i<nList.getLength();i++) {
 			Element user = (Element)nList.item(i);
 			String username=user.getAttribute("name");
 			String password=user.getAttribute("password");
 			String account=user.getAttribute("account");
-			System.out.println(account+" "+username);
-			//userlist.add(new User(username,password,Double.valueOf(account)));
+			userlist.add(new User(username,password,Double.valueOf(account)));
 		}
 		
 		return userlist;
 	}
-	
+
+
 	public static void main(String ...arg) {
 		read xmlread=new read(read.class.getResource("/user.xml").getFile());
 		Set<User> data=xmlread.readAllData();
