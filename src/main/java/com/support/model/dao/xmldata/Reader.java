@@ -1,10 +1,7 @@
 package com.support.model.dao.xmldata;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,12 +15,25 @@ import org.xml.sax.SAXException;
 
 import com.support.model.entity.User;
 
-public class read {
+public class Reader {
 	private static final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
 	private Document document;
+
+	Reader(){}
+
+	public void setUrl(String url){
+		try {
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			document=db.parse(url);
+
+		} catch (ParserConfigurationException|SAXException|IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
-	read(String url){
+	Reader(String url){
 		 try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			document=db.parse(url);
@@ -53,7 +63,7 @@ public class read {
 
 
 	public static void main(String ...arg) {
-		read xmlread=new read(read.class.getResource("/user.xml").getFile());
+		Reader xmlread=new Reader(Reader.class.getResource("/user.xml").getFile());
 		Set<User> data=xmlread.readAllData();
 		for(User user:data) {
 			System.out.println(user.getUserName()+" "+user.getPassword());

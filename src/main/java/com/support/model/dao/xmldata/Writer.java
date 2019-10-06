@@ -22,14 +22,27 @@ import org.xml.sax.SAXException;
 import com.publicgroup.util.Assert;
 import com.support.model.entity.User;
 
-public class write {
+public class Writer {
 	private static final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
 	private Document document;
 	
 	private String url;
-	
-	write(String url){
+
+	public void setUrl(String url){
+		this.url=url;
+		try {
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			document=db.parse(url);
+
+		} catch (ParserConfigurationException|SAXException|IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	Writer(){}
+	Writer(String url){
 		this.url=url;
 		 try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
@@ -118,10 +131,10 @@ public class write {
 	}
 
 	public static void main(String[] args) {
-		String url=write.class.getResource("/user.xml").getFile();
-		write datawrite=new write(url);
+		String url= Writer.class.getResource("/user.xml").getFile();
+		Writer datawrite=new Writer(url);
 		datawrite.update(new User("王郁琦","122322",123.0));
-		read reader=new read(url);
+		Reader reader=new Reader(url);
 		Set<User>users= reader.readAllData();
 		for (User user:users){
 			System.out.println(user.getUserName()+" "+user.getPassword());
