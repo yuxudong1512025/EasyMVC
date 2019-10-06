@@ -14,7 +14,7 @@ public class App
         DefaultDispatcherController defaultDispatcherController= (DefaultDispatcherController) defaultListableBeanFactory.getBean("defaultDispatcherController");
         defaultDispatcherController.setBeanFactory(defaultListableBeanFactory);
         defaultDispatcherController.setResource(App.class.getResource("/trans.xml").getFile());
-        System.out.println(defaultDispatcherController.execute("hello?"));
+        System.out.println(defaultDispatcherController.execute("hello2?"));
 
         System.out.println("finish");
     }

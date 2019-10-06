@@ -3,6 +3,7 @@ package com.support.core.controller;
 import com.publicgroup.annotation.Autowired;
 import com.publicgroup.annotation.Component;
 import com.publicgroup.factory.BeanFactory;
+import com.publicgroup.util.Assert;
 import com.publicgroup.util.log.LogFactory;
 import com.support.core.adapter.StringHandlerAdapter;
 import com.support.core.config.TransDefinition;
@@ -52,7 +53,7 @@ public class DefaultDispatcherController implements DispatcherController,Session
 	public String Response(Map data) {
 		String Command;
 
-			if (data.get("Command") instanceof String) {
+			if (Assert.isNotNull(data.get("Command"))){
 				Command = data.get("Command").toString();
 				if (StringViewResolver.containsCommand(Command)){
 					return StringViewResolver.show(Command,data.get(Command));
@@ -75,7 +76,7 @@ public class DefaultDispatcherController implements DispatcherController,Session
 
 
 	@Override
-	public Map resolveData(String requestUrl, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+	public Map resolveData(String requestUrl, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
 		Map<String,Object>resolveDataMap=new HashMap<>();
 		TransDefinition transDefinition=null;
 
@@ -113,12 +114,16 @@ public class DefaultDispatcherController implements DispatcherController,Session
 
 	public String execute(String input){
 		try{
-			Map<String,String>data=Request(input);
+			Map<String,Object>data=Request(input);
 
-			Map<String,Object>executeData=resolveData(data.get("method"),data);
+			data.put("session",getSession());
+
+			Map<String,Object>executeData=resolveData(data.get("method").toString(),data);
+
+			System.out.println(data.get("session").toString());
 
 			return Response(executeData);
-		} catch (IllegalAccessException|InvocationTargetException|ClassNotFoundException e) {
+		} catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException | NoSuchMethodException e) {
 			logger.log(Level.SEVERE,"",e);
 		}
 		return "error";
@@ -131,4 +136,6 @@ public class DefaultDispatcherController implements DispatcherController,Session
 	public void setStringHandlerAdapter(StringHandlerAdapter stringHandlerAdapter) {
 		this.stringHandlerAdapter = stringHandlerAdapter;
 	}
+
+	public Map getSession(){return this.session;}
 }

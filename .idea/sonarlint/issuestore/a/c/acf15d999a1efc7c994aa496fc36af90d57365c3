@@ -1,4 +1,0 @@
-
-usquid:S1450"WRemove the "transUrl" field and declare it as a local variable in the relevant methods.(Ä—ñ¡8àùğ¿Ø-
-¤squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÎèŒ£ÿÿÿÿÿ8ù…Ø¿Ø-
-Jsquid:S1068",Remove this unused "transUrl" private field.(Ä—ñ¡8«í¿Ø-

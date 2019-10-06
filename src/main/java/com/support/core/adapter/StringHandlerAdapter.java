@@ -49,7 +49,7 @@ public class StringHandlerAdapter implements authentication {
 		return userExist();
 	}
 
-	public Object doHandler(TransDefinition transDefinition, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException {
+	public Object doHandler(TransDefinition transDefinition, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
 		if(transDefinition.containRule("checkAuth")){
 			if(checkAuth()){
 				return execute(transDefinition,data);
@@ -64,28 +64,17 @@ public class StringHandlerAdapter implements authentication {
 	}
 
 
-	public Object execute(TransDefinition transDefinition, Map data) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+	public Object execute(TransDefinition transDefinition, Map data) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
 		System.out.println(transDefinition.getTransUrl());
 		Class<?>actionClass=Class.forName(transDefinition.getTransUrl());
-		System.out.println(actionClass.getSimpleName());
-		Object action=beanFactory.getBean(actionClass.getSimpleName());
-		Method method=null;
-		try {
-			method=actionClass.getDeclaredMethod(transDefinition.getTransMethod());
-		} catch (NoSuchMethodException e) {
-			e.printStackTrace();
-		}
-		Object[]arg=new Object[method.getParameterCount()];
-		Parameter[]list=method.getParameters();
-		int count=0;
-		for (Parameter parameter:list){
-			Class<?>pType=parameter.getType();
-			String pName=parameter.getName();
-			arg[count++]=pType.cast(data.get(pName));
-		}
 
-		Object returnData=method.invoke(action,arg);
-
+		String beanName=actionClass.getSimpleName().substring(0,1).toLowerCase()+actionClass.getSimpleName().substring(1);
+		System.out.println(beanName);
+		Object action=beanFactory.getBean(beanName);
+		System.out.println(transDefinition.getTransMethod());
+		Method method=actionClass.getDeclaredMethod(transDefinition.getTransMethod(),Map.class);
+		Object returnData=method.invoke(action,data);
 		return method.getReturnType().cast(returnData);
+
 	}
 }

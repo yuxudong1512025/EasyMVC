@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <trans>
-    <tran name="hello" url="com.support.model.service.userService" method="hello">
+    <tran name="hello" url="com.support.model.controller.UserController" method="SayHello">
+        <rules>
+            <rule name="checkAuth"></rule>
+        </rules>
     </tran>
+    <tran name="hello2" url="com.support.model.controller.UserController" method="SayHello2"></tran>
 </trans>

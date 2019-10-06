@@ -9,6 +9,6 @@ public interface DispatcherController {
 
 	String Response(Map data);
 
-	Map resolveData(String requestUrl,Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException;
+	Map resolveData(String requestUrl,Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException;
 
 }
