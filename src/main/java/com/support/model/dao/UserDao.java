@@ -21,7 +21,7 @@ public class UserDao {
 	}
 
 	public User findByUsername(String username) {
-		this.reader.setUrl(UserDao.class.getResource("/user.xml").getFile());
+		this.reader.setUrl(System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml");
 		Set<User> users = reader.readAllData();
 		for (User user : users) {
 			if (user.getUserName().equals(username)) {
@@ -32,12 +32,12 @@ public class UserDao {
 	}
 
 	public void add(User user) {
-		this.writer.setUrl(UserDao.class.getResource("/user.xml").getFile());
+		this.writer.setUrl(System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml");
 		writer.insert(user);
 	}
 
 	public void update(User user) {
-		this.writer.setUrl(UserDao.class.getResource("/user.xml").getFile());
+		this.writer.setUrl(System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml");
 		writer.update(user);
 	}
 
