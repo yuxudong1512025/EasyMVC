@@ -29,10 +29,4 @@ public class StringParser {
 		return data;
 	}
 
-	public static void main(String[] args) {
-		Map<String, String> data = sendDataFormat("hello?id=123&password=123456");
-		for (Map.Entry<String, String> entry : data.entrySet()) {
-			LogFactory.getGlobalLog().info(entry.getKey() + " " + entry.getValue());
-		}
-	}
 }

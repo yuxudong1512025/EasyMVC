@@ -47,7 +47,7 @@ public class Reader {
 	}
 
 	public Set readAllData() {
-		Set<User> userlist = new HashSet<>();
+		Set<User> userList = new HashSet<>();
 
 		Element root = document.getDocumentElement();
 
@@ -57,18 +57,10 @@ public class Reader {
 			String username = user.getAttribute("name");
 			String password = user.getAttribute("password");
 			String account = user.getAttribute("account");
-			userlist.add(new User(username, password, Double.valueOf(account)));
+			userList.add(new User(username, password, Double.valueOf(account)));
 		}
 
-		return userlist;
+		return userList;
 	}
 
-
-	public static void main(String... arg) {
-		Reader xmlread = new Reader(Reader.class.getResource("/user.xml").getFile());
-		Set<User> data = xmlread.readAllData();
-		for (User user : data) {
-			logger.info(user.getUserName() + " " + user.getPassword());
-		}
-	}
 }

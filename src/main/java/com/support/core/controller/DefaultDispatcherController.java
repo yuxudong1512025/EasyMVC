@@ -11,7 +11,6 @@ import com.support.core.mapping.HandleMappingimpl;
 
 import com.support.core.resolver.StringViewResolver;
 import com.support.exception.DataNeedACommandException;
-import com.support.exception.NoSuchCommandException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -23,7 +22,7 @@ import java.util.logging.Logger;
  * @author yuxudong
  */
 @Component
-public class DefaultDispatcherController implements DispatcherController, Session {
+public class DefaultDispatcherController implements DispatcherController {
 	private static final Logger logger = LogFactory.getGlobalLog();
 	private Map<String, Object> session = new HashMap<>(64);
 	private BeanFactory beanFactory;
@@ -55,8 +54,6 @@ public class DefaultDispatcherController implements DispatcherController, Sessio
 
 	@Override
 	public String response(Map data) {
-		String command;
-
 		if (Assert.isNotNull(data.get("Command"))) {
 			StringViewResolver stringViewResolver= (StringViewResolver) data.get("Command");
 			return StringViewResolver.show(stringViewResolver,data.get(stringViewResolver.getKey()));
@@ -81,31 +78,11 @@ public class DefaultDispatcherController implements DispatcherController, Sessio
 			logger.log(Level.SEVERE, "未定义交易");
 			return null;
 		}
-		stringHandlerAdapter.setSession(this);
 		stringHandlerAdapter.setBeanFactory(this.beanFactory);
 
 		return (Map) stringHandlerAdapter.doHandler(transDefinition, data);
 	}
 
-	@Override
-	public Object getSession(String name) {
-		return session.get(name);
-	}
-
-	@Override
-	public void setSession(String name, Object value) {
-		session.put(name, value);
-	}
-
-	@Override
-	public void removeSession(String name) {
-		session.remove(name);
-	}
-
-	@Override
-	public boolean containSession(String name) {
-		return session.containsKey(name);
-	}
 
 	public String execute(String input) {
 		try {

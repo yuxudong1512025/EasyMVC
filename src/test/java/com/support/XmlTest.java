@@ -15,13 +15,17 @@ public class XmlTest {
 
     @Test
     public void update(){
-        String url = Writer.class.getResource("/user.xml").getFile();
+        String url= System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml";
         Writer datawrite = new Writer(url);
-        datawrite.update(new User("王郁琦", "122322", 123.0));
+        User updateUser=new User("yu", "123", 123.0);
+        datawrite.update(updateUser);
         Reader reader = new Reader(url);
         Set<User> users = reader.readAllData();
         for (User user : users) {
-            logger.info(user.getUserName() + " " + user.getPassword());
+            System.out.println(user.toString());
+            if("yu".equals(user.getUserName())){
+                Assert.assertEquals(updateUser,user);
+            }
         }
 
     }
@@ -37,12 +41,39 @@ public class XmlTest {
         Reader reader=new Reader(url);
         Set<User> users= reader.readAllData();
         for (User user:users){
-            if(user.getUserName().equals("gnn")){
+            if("gnn".equals(user.getUserName())){
                 Assert.assertEquals(insertUser,user);
             }
 
         }
 
+    }
+
+    @Test
+    public void read(){
+        String url= System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml";
+        Reader xmlread = new Reader(url);
+        Set<User> data = xmlread.readAllData();
+        for (User user : data) {
+            System.out.println(user.toString());
+            if("wang".equals(user.getUserName())){
+                Assert.assertEquals(user,new User("wang","123",100.0));
+            }
+        }
+    }
+
+    @Test
+    public void delete(){
+        String url= System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml";
+        Writer datawrite = new Writer(url);
+        User deleteUser=new User("gu", "123", 123.0);
+        datawrite.delete(deleteUser);
+        Reader xmlread = new Reader(url);
+        Set<User> data = xmlread.readAllData();
+        for (User user : data) {
+            System.out.println(user.toString());
+            Assert.assertNotEquals("gu",user.getUserName());
+        }
 
     }
 

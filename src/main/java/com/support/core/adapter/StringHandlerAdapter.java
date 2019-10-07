@@ -4,7 +4,6 @@ import com.publicgroup.factory.BeanFactory;
 import com.publicgroup.util.Assert;
 import com.publicgroup.util.log.LogFactory;
 import com.support.core.config.TransDefinition;
-import com.support.core.controller.Session;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -15,54 +14,18 @@ import java.util.logging.Logger;
 /**
  * @author yuxudong
  */
-public class StringHandlerAdapter implements authentication {
+public class StringHandlerAdapter  {
 
 	private static final Logger logger= LogFactory.getGlobalLog();
 
-	private Session session;
-
 	private BeanFactory beanFactory;
-
-	public void setSession(Session session) {
-		this.session = session;
-	}
 
 	public void setBeanFactory(BeanFactory beanFactory) {
 		this.beanFactory = beanFactory;
 	}
 
-	@Override
-	public boolean userExist() {
-		return Assert.isNotNull(session.getSession("username"));
-	}
-
-	@Override
-	public void addUser(String userName, String password) {
-		session.setSession("userName", userName);
-		session.setSession("userPassword", password);
-	}
-
-	@Override
-	public void removeUser() {
-		session.removeSession("userName");
-		session.removeSession("userPassword");
-	}
-
-	public boolean checkAuth() {
-		return userExist();
-	}
 
 	public Object doHandler(TransDefinition transDefinition, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
-		if (transDefinition.containRule("checkAuth")) {
-			if (checkAuth()) {
-				return execute(transDefinition, data);
-			} else {
-				Map errorResult = new HashMap<String, Object>();
-				errorResult.put("Command", "Nologin");
-				errorResult.put("Nologin", null);
-				return errorResult;
-			}
-		}
 		return execute(transDefinition, data);
 	}
 

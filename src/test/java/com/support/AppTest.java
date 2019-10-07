@@ -25,10 +25,13 @@ public class AppTest
         DefaultDispatcherController defaultDispatcherController = (DefaultDispatcherController) defaultListableBeanFactory.getBean("defaultDispatcherController");
         defaultDispatcherController.setBeanFactory(defaultListableBeanFactory);
         defaultDispatcherController.setResource(App.class.getResource("/trans.xml").getFile());
-        String registerFailure=defaultDispatcherController.execute("register.do?");
-        Assert.assertEquals("该用户已注册",registerFailure);
-        String registerSuccess =defaultDispatcherController.execute("register.do?username=gnn&password=123");
-        Assert.assertEquals("gnn 注册成功，欢迎您的加入",registerSuccess);
+
+//        String registerSuccess =defaultDispatcherController.execute("register.do?username=gnn&password=123");
+//        Assert.assertEquals("gnn 注册成功，欢迎您的加入",registerSuccess);
+//        String registerFailure=defaultDispatcherController.execute("register.do?username=gnn&password=12");
+//        Assert.assertEquals("该用户已注册",registerFailure);
+        String empty = defaultDispatcherController.execute("register.do?password=1");
+        Assert.assertEquals("用户名或密码不能为空",empty);
 
     }
 
@@ -75,16 +78,17 @@ public class AppTest
         DefaultDispatcherController defaultDispatcherController = (DefaultDispatcherController) defaultListableBeanFactory.getBean("defaultDispatcherController");
         defaultDispatcherController.setBeanFactory(defaultListableBeanFactory);
         defaultDispatcherController.setResource(App.class.getResource("/trans.xml").getFile());
-        String loginSuccess=defaultDispatcherController.execute("login?username=gu&password=123");
-        Assert.assertEquals("登录成功，欢迎您 gu",loginSuccess);
-        String depositSuccess =defaultDispatcherController.execute("pay.do?money=100");
-        Assert.assertEquals("您已成功付款100 元",depositSuccess);
+//        String loginSuccess=defaultDispatcherController.execute("login?username=gu&password=123");
+//        Assert.assertEquals("登录成功，欢迎您 gu",loginSuccess);
+//        String depositSuccess =defaultDispatcherController.execute("pay.do?money=100");
+//        Assert.assertEquals("您已成功付款100 元",depositSuccess);
+//
+//        String notEnoughMoney =defaultDispatcherController.execute("pay.do?money=100000");
+//        Assert.assertEquals("付款失败，您的余额不足 100000 元",notEnoughMoney);
 
-        String notEnoughMoney =defaultDispatcherController.execute("pay.do?money=100000");
-        Assert.assertEquals("付款失败，您的余额不足 100000 元",notEnoughMoney);
-
-//        String payFailure =defaultDispatcherController.execute("pay.do?money=100");
-//        Assert.assertEquals("请先登录",payFailure);
+        String payFailure =defaultDispatcherController.execute("pay.do?money=100");
+        Assert.assertEquals("请先登录",payFailure);
+        System.out.println(payFailure);
     }
 
 

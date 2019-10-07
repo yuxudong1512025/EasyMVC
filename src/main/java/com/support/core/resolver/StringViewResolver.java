@@ -1,8 +1,5 @@
 package com.support.core.resolver;
 
-import com.publicgroup.util.log.LogFactory;
-
-
 
 /**
  * @author
@@ -15,18 +12,60 @@ interface ViewResolver{
 }
 
 public enum  StringViewResolver implements ViewResolver{
+	/**
+	 * 未登录
+	 */
 	NOLOGIN("Nologin","请先登录"),
+
+	/**
+	 * 登陆成功
+	 */
 	LOGINSUCCESS("LoginSuccess","登录成功，欢迎您 %s"),
+
+	/**
+	 * 用户没注册
+	 */
 	NOREGISTER("NoRegister","抱歉 %s 未注册"),
+
+	/**
+	 * 注册时输入空的用户名或者密码
+	 */
+	EMPTYPNAMEORPASSWORD("EmptyNameOrPassword","用户名或密码不能为空"),
+
+	/**
+	 * 用户已注册
+	 */
 	ERRORREGISTER("ErrorRegister","该用户已注册"),
+
+	/**
+	 * 用户注册成功
+	 */
 	REGISTERSUCCESS("RegisterSuccess","%s 注册成功，欢迎您的加入"),
+
+	/**
+	 * 充值成功
+	 */
 	DEPOSITSUCCESS("DepositSuccess","您已成功充值%s 元"),
+
+	/**
+	 * 付款成功
+	 */
 	PAYSUCCESS("PaySuccess","您已成功付款%s 元"),
+
+	/**
+	 * 余额不足
+	 */
 	PAYFAIL("PayFail","付款失败，您的余额不足 %s 元"),
+
+	/**
+	 * 密码错误
+	 */
 	ERRORPASSWORD("ErrorPassword","密码错误"),
+
+	/**
+	 * 错误命令
+	 */
 	ERROR("Error","Command Not Found");
-
-
 
 
 	private String key;
@@ -35,7 +74,7 @@ public enum  StringViewResolver implements ViewResolver{
 	public String getKey(){
 		return key;
 	}
-	public String getvalue(){
+	public String getValue(){
 		return value;
 	}
 	public static StringViewResolver find(String key){
@@ -62,13 +101,7 @@ public enum  StringViewResolver implements ViewResolver{
 	}
 
 	public static String show(StringViewResolver stringViewResolver, Object... arg){
-		return  ViewResolver.show(stringViewResolver.getvalue(),arg);
+		return  ViewResolver.show(stringViewResolver.getValue(),arg);
 	}
 
-	public static void main(String[] args) {
-		String out=ViewResolver.show(PAYSUCCESS.value,100.11);
-		String Sout=StringViewResolver.show(PAYSUCCESS,100.11);
-		LogFactory.getGlobalLog().info(Sout);
-		LogFactory.getGlobalLog().info(out);
-	}
 }

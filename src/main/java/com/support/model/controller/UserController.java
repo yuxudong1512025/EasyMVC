@@ -28,6 +28,12 @@ public class UserController {
 	public Map register(Map data) {
 		String username = (String) data.get("username");
 		String password = (String) data.get("password");
+		if(!Assert.isNotNull(username)||!Assert.isNotNull(password)){
+			Map<String,Object> result=new HashMap<>();
+			result.put("Command", StringViewResolver.EMPTYPNAMEORPASSWORD);
+			result.put(StringViewResolver.EMPTYPNAMEORPASSWORD.getKey(), null);
+			return result;
+		}
 		User user = new User(username, password, 0.00);
 		Map result = userService.register(user);
 		if (result.get("Command").equals(StringViewResolver.REGISTERSUCCESS)) {
