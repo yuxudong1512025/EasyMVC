@@ -51,7 +51,7 @@ public class Writer {
 	public Writer() {
 	}
 
-	Writer(String url) {
+	public Writer(String url) {
 		this.url = url;
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();

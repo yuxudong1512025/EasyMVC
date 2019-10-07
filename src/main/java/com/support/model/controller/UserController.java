@@ -25,11 +25,11 @@ public class UserController {
 		return result;
 	}
 
-	public Map regist(Map data) {
+	public Map register(Map data) {
 		String username = (String) data.get("username");
 		String password = (String) data.get("password");
 		User user = new User(username, password, 0.00);
-		Map result = userService.regist(user);
+		Map result = userService.register(user);
 		if (result.get("Command").equals(StringViewResolver.REGISTERSUCCESS)) {
 			Map<String, Object> session = (Map) data.get("session");
 			session.remove("user");

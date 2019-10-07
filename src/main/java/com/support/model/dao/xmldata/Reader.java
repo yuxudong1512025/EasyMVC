@@ -37,7 +37,7 @@ public class Reader {
 		}
 	}
 
-	Reader(String url) {
+	public Reader(String url) {
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			document = db.parse(url);

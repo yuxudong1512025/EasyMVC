@@ -22,7 +22,7 @@ public class UserService {
 		this.userDao = userDao;
 	}
 
-	public Map<String, Object> regist(User user) {
+	public Map<String, Object> register(User user) {
 		result.clear();
 		User userdata = userDao.findByUsername(user.getUserName());
 		if (Assert.isNotNull(userdata)) {
