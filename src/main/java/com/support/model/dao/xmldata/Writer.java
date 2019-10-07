@@ -135,14 +135,4 @@ public class Writer {
 		}
 	}
 
-	public static void main(String[] args) {
-		String url = Writer.class.getResource("/user.xml").getFile();
-		Writer datawrite = new Writer(url);
-		datawrite.update(new User("王郁琦", "122322", 123.0));
-		Reader reader = new Reader(url);
-		Set<User> users = reader.readAllData();
-		for (User user : users) {
-			logger.info(user.getUserName() + " " + user.getPassword());
-		}
-	}
 }

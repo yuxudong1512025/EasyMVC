@@ -44,6 +44,7 @@ public class UserController {
 		Double account = (Double) data.get("account");
 		User user = new User(username, password, account);
 		Map<String, Object> session = (Map) data.get("session");
+		//只允许一人登录
 		if (Assert.isNotNull(session.get("user"))) {
 			session.remove("user");
 		}

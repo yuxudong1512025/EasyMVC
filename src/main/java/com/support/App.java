@@ -21,8 +21,6 @@ public class App {
 		DefaultDispatcherController defaultDispatcherController = (DefaultDispatcherController) defaultListableBeanFactory.getBean("defaultDispatcherController");
 		defaultDispatcherController.setBeanFactory(defaultListableBeanFactory);
 		defaultDispatcherController.setResource(App.class.getResource("/trans.xml").getFile());
-		result=defaultDispatcherController.execute("login?username=gu&password=123");
-		logger.info(result);
 
 		Scanner scanner = new Scanner(System.in);
 		String input = null;
@@ -32,6 +30,7 @@ public class App {
 				break;
 			}
 			result=defaultDispatcherController.execute(input);
+			System.out.println(result);
 			logger.info(result);
 		}
 

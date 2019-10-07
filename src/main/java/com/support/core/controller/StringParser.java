@@ -10,7 +10,9 @@ public class StringParser {
 	public static Map sendDataFormat(String input) {
 		Map<String, String> data = new HashMap<>();
 		String[] stringdata = input.split("\\?");
-		data.put("method", stringdata[0]);
+		String[] split=stringdata[0].split("\\.");
+		data.put("method", split[0]);
+//		data.put("method", stringdata[0]);
 		if (stringdata.length >= 2) {
 			input = stringdata[1];
 			stringdata = input.split("\\&");
