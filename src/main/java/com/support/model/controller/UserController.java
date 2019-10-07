@@ -48,10 +48,11 @@ public class UserController {
 			session.remove("user");
 		}
 		User userdata = userService.login(user);
+
 		Map<String, Object> result = new HashMap<>(64);
 		if (!Assert.isNotNull(userdata)) {
 			result.put("Command", StringViewResolver.NOREGISTER);
-			result.put("NoRegister", userdata.getUserName());
+			result.put("NoRegister", username);
 			return result;
 		}
 		if (!user.getPassword().equals(userdata.getPassword())) {
