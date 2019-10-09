@@ -1,13 +1,11 @@
 package com.support.core.adapter;
 
 import com.publicgroup.factory.BeanFactory;
-import com.publicgroup.util.Assert;
 import com.publicgroup.util.log.LogFactory;
 import com.support.core.config.TransDefinition;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -30,15 +28,24 @@ public class StringHandlerAdapter  {
 	}
 
 
+	//执行方法
 	public Object execute(TransDefinition transDefinition, Map data) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-		logger.info(transDefinition.getTransUrl());
+		logger.info("TransURL "+transDefinition.getTransUrl());
+		//根据路径名生成class对象
 		Class<?> actionClass = Class.forName(transDefinition.getTransUrl());
+
+		//首字母大写转小写
 		String beanName = actionClass.getSimpleName().substring(0, 1).toLowerCase() + actionClass.getSimpleName().substring(1);
-		logger.info(beanName);
+		logger.info("beanName "+beanName);
+		//根据beanName找到userController对象
 		Object action = beanFactory.getBean(beanName);
-		logger.info(transDefinition.getTransMethod());
+
+		logger.info("methodName "+transDefinition.getTransMethod());
+		//拿到方法
 		Method method = actionClass.getDeclaredMethod(transDefinition.getTransMethod(), Map.class);
+		//调用方法
 		Object returnData = method.invoke(action, data);
+
 		return method.getReturnType().cast(returnData);
 
 	}

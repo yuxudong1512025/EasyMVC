@@ -1,6 +1,7 @@
 package com.support.model.dao.xmldata;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -57,7 +58,7 @@ public class Reader {
 			String username = user.getAttribute("name");
 			String password = user.getAttribute("password");
 			String account = user.getAttribute("account");
-			userList.add(new User(username, password, Double.valueOf(account)));
+			userList.add(new User(username, password, new BigDecimal(account)));
 		}
 
 		return userList;

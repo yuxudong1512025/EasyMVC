@@ -7,6 +7,7 @@ import com.support.model.entity.User;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -17,7 +18,7 @@ public class XmlTest {
     public void update(){
         String url= System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml";
         Writer datawrite = new Writer(url);
-        User updateUser=new User("yu", "123", 123.0);
+        User updateUser=new User("yu", "123", new BigDecimal("123.00"));
         datawrite.update(updateUser);
         Reader reader = new Reader(url);
         Set<User> users = reader.readAllData();
@@ -35,7 +36,7 @@ public class XmlTest {
         String url= System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml";
         System.out.println(url);
         Writer datawrite=new Writer(url);
-        User insertUser=new User("gnn","123456",100.0);
+        User insertUser=new User("gnn","123456",new BigDecimal("100.00"));
         datawrite.insert(insertUser);
 
         Reader reader=new Reader(url);
@@ -57,7 +58,7 @@ public class XmlTest {
         for (User user : data) {
             System.out.println(user.toString());
             if("wang".equals(user.getUserName())){
-                Assert.assertEquals(user,new User("wang","123",100.0));
+                Assert.assertEquals(user,new User("wang","123",new BigDecimal("0.00")));
             }
         }
     }
@@ -66,7 +67,7 @@ public class XmlTest {
     public void delete(){
         String url= System.getProperty("user.dir")+"\\src\\main\\resources\\user.xml";
         Writer datawrite = new Writer(url);
-        User deleteUser=new User("gu", "123", 123.0);
+        User deleteUser=new User("gu", "123", new BigDecimal("123.00"));
         datawrite.delete(deleteUser);
         Reader xmlread = new Reader(url);
         Set<User> data = xmlread.readAllData();

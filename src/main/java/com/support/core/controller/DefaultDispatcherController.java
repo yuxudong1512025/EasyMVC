@@ -54,6 +54,7 @@ public class DefaultDispatcherController implements DispatcherController {
 
 	@Override
 	public String response(Map data) {
+		//把map解析成结果
 		if (Assert.isNotNull(data.get("Command"))) {
 			StringViewResolver stringViewResolver= (StringViewResolver) data.get("Command");
 			return StringViewResolver.show(stringViewResolver,data.get(stringViewResolver.getKey()));
@@ -72,6 +73,7 @@ public class DefaultDispatcherController implements DispatcherController {
 	public Map resolveData(String requestUrl, Map data) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException, NoSuchMethodException {
 		TransDefinition transDefinition = null;
 
+		//根据输入的方法名从map里拿到对应的transDefinition实例
 		if (handleMappingimpl.containsTrans(requestUrl)) {
 			transDefinition = handleMappingimpl.getTransDefinition(requestUrl);
 		} else {
@@ -80,15 +82,22 @@ public class DefaultDispatcherController implements DispatcherController {
 		}
 		stringHandlerAdapter.setBeanFactory(this.beanFactory);
 
+		//返回方法执行结果
 		return (Map) stringHandlerAdapter.doHandler(transDefinition, data);
 	}
 
 
+	//解析并执行输入的命令
 	public String execute(String input) {
 		try {
+			//把输入命令解析后放进map
 			Map<String, Object> data = request(input);
+			//把session状态放进map
 			data.put("session", getSession());
+			//根据method名字。调用controller里相应的方法来执行
+
 			Map<String, Object> executeData = resolveData(data.get("method").toString(), data);
+
 			return response(executeData);
 		} catch (IllegalAccessException | InvocationTargetException | ClassNotFoundException | NoSuchMethodException e) {
 			logger.log(Level.SEVERE, "执行失败：", e);

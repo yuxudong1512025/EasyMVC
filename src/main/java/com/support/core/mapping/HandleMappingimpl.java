@@ -35,12 +35,6 @@ public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistr
 		transDefinitionMap.put(transName, transDefinition);
 	}
 
-	@Override
-	public TransDefinition removeTransDefinition(String transName) {
-		TransDefinition transDefinition = transDefinitionMap.get(transName);
-		transDefinitionMap.remove(transName);
-		return transDefinition;
-	}
 
 	public void setTransResource(TransResource transResource) {
 		this.transResource = transResource;
@@ -68,6 +62,9 @@ public class HandleMappingimpl implements ResourceLoader, TransDefinitionRegistr
 		}
 	}
 
+	/**
+	 * 根据xml实例化transDefinition并注册进map里
+	 */
 	private void refresh() {
 		int count = 0;
 		try {

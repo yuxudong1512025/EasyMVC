@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><users>
     <user account="100" name="wang" password="123"/>
     <user account="4" name="zhao" password="123"/>
-    <user account="1000.0" name="gu" password="123"/>
-<user account="123.0" name="yu" password="123"/><user account="0.0" name="3" password="12"/><user account="0.0" name="" password="12"/><user account="0.0" name="" password="12"/><user account="0.0" name="" password="12"/><user account="0.0" name="gnn" password="12"/></users>
+    
+<user account="123.0" name="yu" password="123"/><user account="1200.0" name="gu" password="123"/></users>

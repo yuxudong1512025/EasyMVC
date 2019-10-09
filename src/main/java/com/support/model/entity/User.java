@@ -1,13 +1,14 @@
 package com.support.model.entity;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class User {
 	private String userName;
 	private String password;
-	private Double account;
+	private BigDecimal account;
 
-	public Double getAccount() {
+	public BigDecimal getAccount() {
 		return account;
 	}
 
@@ -19,7 +20,7 @@ public class User {
 		return userName;
 	}
 
-	public void setAccount(Double account) {
+	public void setAccount(BigDecimal account) {
 		this.account = account;
 	}
 
@@ -31,7 +32,7 @@ public class User {
 		this.userName = userName;
 	}
 
-	public User(String username, String password, Double account) {
+	public User(String username, String password, BigDecimal account) {
 		super();
 		this.userName = username;
 		this.password = password;

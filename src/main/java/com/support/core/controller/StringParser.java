@@ -1,12 +1,11 @@
 package com.support.core.controller;
 
-import com.publicgroup.util.log.LogFactory;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class StringParser {
 
+	//解析输入参数
 	public static Map sendDataFormat(String input) {
 		Map<String, String> data = new HashMap<>();
 		String[] stringdata = input.split("\\?");
