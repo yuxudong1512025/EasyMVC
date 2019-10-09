@@ -19,7 +19,7 @@
         <ref bean="userDao"></ref>
     </bean>
 
-    <bean name="userController" class="com.support.model.controller.UserController">
+    <bean name="userController" class="com.support.controller.UserController">
         <ref bean="userService"></ref>
     </bean>
     <bean name="reader" class="com.support.model.dao.xmldata.Reader"></bean>
