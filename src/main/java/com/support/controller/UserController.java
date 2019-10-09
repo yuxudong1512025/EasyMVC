@@ -1,29 +1,30 @@
-package com.support.model.controller;
+package com.support.controller;
 
 import com.publicgroup.util.Assert;
 import com.support.core.resolver.StringViewResolver;
 import com.support.model.entity.User;
 import com.support.model.service.UserService;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 public class UserController {
 	private UserService userService;
 
-	public void sayHello(Map data) {
-		Map<String, Object> session = Map.class.cast(data.get("session"));
-		session.put("username", "123");
-		userService.hello();
-		session.remove("username");
-	}
-
-	public Map sayHello2(Map data) {
-		Map<String, Object> result = new HashMap<>(64);
-		result.put("Command",StringViewResolver.LOGINSUCCESS);
-		result.put("LoginSuccess", "yuxudong");
-		return result;
-	}
+//	public void sayHello(Map data) {
+//		Map<String, Object> session = Map.class.cast(data.get("session"));
+//		session.put("username", "123");
+//		userService.hello();
+//		session.remove("username");
+//	}
+//
+//	public Map sayHello2(Map data) {
+//		Map<String, Object> result = new HashMap<>(64);
+//		result.put("Command",StringViewResolver.LOGINSUCCESS);
+//		result.put("LoginSuccess", "yuxudong");
+//		return result;
+//	}
 
 	public Map register(Map data) {
 		String username = (String) data.get("username");
@@ -34,7 +35,7 @@ public class UserController {
 			result.put(StringViewResolver.EMPTYPNAMEORPASSWORD.getKey(), null);
 			return result;
 		}
-		User user = new User(username, password, 0.00);
+		User user = new User(username, password, new BigDecimal("0.00"));
 		Map result = userService.register(user);
 		if (result.get("Command").equals(StringViewResolver.REGISTERSUCCESS)) {
 			Map<String, Object> session = (Map) data.get("session");
@@ -47,10 +48,17 @@ public class UserController {
 	public Map login(Map data) {
 		String username = (String) data.get("username");
 		String password = (String) data.get("password");
-		Double account = (Double) data.get("account");
+		if(!Assert.isNotNull(username)||!Assert.isNotNull(password)){
+			Map<String,Object> result=new HashMap<>();
+			result.put("Command", StringViewResolver.EMPTYPNAMEORPASSWORD);
+			result.put(StringViewResolver.EMPTYPNAMEORPASSWORD.getKey(), null);
+			return result;
+		}
+
+		BigDecimal account = (BigDecimal) data.get("account");
 		User user = new User(username, password, account);
 		Map<String, Object> session = (Map) data.get("session");
-		//只允许一人登录
+
 		if (Assert.isNotNull(session.get("user"))) {
 			session.remove("user");
 		}

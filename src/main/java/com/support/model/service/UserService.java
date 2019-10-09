@@ -1,5 +1,6 @@
 package com.support.model.service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,7 +44,7 @@ public class UserService {
 
 	public Map<String, Object> deposit(String money, User user) {
 		result.clear();
-		user.setAccount(user.getAccount() + Double.valueOf(money));
+		user.setAccount(user.getAccount().add(new BigDecimal(money)));
 		userDao.update(user);
 
 		result.put("Command", StringViewResolver.DEPOSITSUCCESS);
@@ -54,11 +55,11 @@ public class UserService {
 
 	public Map<String, Object> pay(String money, User user) {
 		result.clear();
-		if (user.getAccount() < Double.valueOf(money)) {
+		if (user.getAccount().compareTo(new BigDecimal(money))==-1) {
 			result.put("Command", StringViewResolver.PAYFAIL);
 			result.put("PayFail", money);
 		} else {
-			user.setAccount(user.getAccount() - Double.valueOf(money));
+			user.setAccount(user.getAccount().subtract(new BigDecimal(money)));
 			userDao.update(user);
 			result.put("Command", StringViewResolver.PAYSUCCESS);
 			result.put("PaySuccess", money);

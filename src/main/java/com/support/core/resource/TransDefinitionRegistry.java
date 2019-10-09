@@ -6,5 +6,4 @@ public interface TransDefinitionRegistry {
 
 	void registerTransDefinition(String transName, TransDefinition transDefinition);
 
-	TransDefinition removeTransDefinition(String transName);
 }
